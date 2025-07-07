@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact_responsive.css' %}">
+{% endblock %}
+
+{% block title %}Contact{% endblock %}
+{% block description %}Links to my social media, GitHub,
+and other ways to reach me.{% endblock %}
+
+{% block main-content %}
+<main>
+<section>
+  <h1>Contact</h1>
+  <p>
+    Here are some ways to reach me —
+      whether it’s for questions, feedback,
+      or just to say hi.  
+    You’ll find links to my social media, GitHub,
+      and other platforms I use.
+  </p>
+</section>
+
+<section id="contact-link-section">
+  <div class="contact-box sidebar-box light-box-shadow bump-up">
+    <div class="icon-section">
+      <a
+        href="https://github.com/Bubu-Droid"
+        target="_blank"
+        >
+        <img src="{% static 'img/github.png' %}" alt="GitHub icon" id="github-logo" height="60">
+      </a>
+    </div>
+    <div class="text-section">
+      <a
+        href="https://github.com/Bubu-Droid"
+        target="_blank">Bubu-Droid</a> on GitHub
+    </div>
+  </div>
+
+  <div class="contact-box sidebar-box light-box-shadow bump-up">
+    <div class="icon-section">
+      <a
+        href="https://discord.com/app"
+        target="_blank"
+        >
+        <img src="{% static 'img/discord.png' %}" alt="Discord icon" id="discord-logo" height="62.5">
+      </a>
+    </div>
+    <div class="text-section">
+      <code>bubu_droid</code> on Discord
+    </div>
+  </div>
+
+  <div class="contact-box sidebar-box light-box-shadow bump-up">
+    <div class="icon-section">
+      <a
+        href="https://www.linkedin.com/in/avigyan-chakraborty-b004b2372/"
+        target="_blank"
+        >
+        <img src="{% static 'img/linkedin.png' %}" alt="LinkedIn icon" id="linkedin-logo" height="60">
+      </a>
+    </div>
+    <div class="text-section">
+      <a
+        href="https://www.linkedin.com/in/avigyan-chakraborty-b004b2372/"
+        target="_blank">Avigyan Chakraborty</a> on LinkedIn
+    </div>
+  </div>
+
+  <div class="contact-box sidebar-box light-box-shadow bump-up">
+    <div class="icon-section">
+      <a href="#" id="email-link">
+        <img src="{% static 'img/gmail.png' %}" alt="Mail icon" id="mail-logo" height="55">
+      </a>
+    </div>
+    <div class="text-section">
+      E-mail me at $\text{fufudadw}\texttt{@}\text{gmail}{.}\text{com}$
+    </div>
+  </div>
+
+  <div class="contact-box sidebar-box light-box-shadow bump-up">
+    <div class="icon-section">
+      <a href="https://artofproblemsolving.com/community/user/784223" id="aops-link">
+        <img src="{% static 'img/aops.png' %}" alt="AoPS icon" id="aops-logo" height="60">
+      </a>
+    </div>
+    <div class="text-section">
+      <a
+        href="https://artofproblemsolving.com/community/user/784223"
+        target="_blank"
+        >kamatadu</a> on AoPS
+    </div>
+  </div>
+
+  <div class="contact-box sidebar-box light-box-shadow bump-up">
+    <div class="icon-section">
+      <a href="https://www.youtube.com/@bubu-droid" id="yt-link">
+        <img src="{% static 'img/youtube.png' %}" alt="YouTube icon" id="yt-logo" height="58">
+      </a>
+    </div>
+    <div class="text-section">
+      <a
+        href="https://www.youtube.com/@bubu-droid"
+        target="_blank"
+        >Avigyan Chakraborty</a> on YouTube
+    </div>
+  </div>
+</section>
+
+</main>
+{% endblock %}

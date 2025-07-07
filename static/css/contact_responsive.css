@@ -1,0 +1,31 @@
+@media (width <= 650px) {
+  .contact-box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: unset;
+  }
+
+  .text-section {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0;
+  }
+
+  .text-section a {
+    text-align: center;
+  }
+
+  .icon-section {
+    border-bottom: 2px solid color-mix(in srgb, var(--accent) 60%, transparent);
+    border-right: 0;
+    padding: 15px 0;
+  }
+}
+
+@media (width <= 450px) {
+  main {
+    padding: 0 1rem;
+    width: 85%;
+  }
+}

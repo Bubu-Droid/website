@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'postapp/index_style.css' %}">
+<link rel="stylesheet" href="{% static 'postapp/detail_style.css' %}">
+<link rel="stylesheet" href="{% static 'postapp/detail_responsive.css' %}">
+{% endblock %}
+
+{% block responsive-css %}
+{% endblock %}
+
+{% block main-content %}
+<main>
+  <article>
+    <h1>{{ post.title }}</h1>
+    <p class="post-date"><strong>Date:</strong> {{ post.date }}</p>
+    {{ content }}
+    {% if post.tags.exists %}
+    <ul class="tag-list">
+      {% for tag in post.tags.all %}
+      <li>
+        <a href="{% url request.resolver_match.namespace|add:':post_tag' tag.name %}">
+          {{ tag.name }}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </article>
+</main>
+
+{% endblock %}

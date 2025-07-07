@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/style.css' %}">
+{% endblock %}
+
+{% block main-content %}
+<main>
+<section>
+  <h1>Welcome!</h1>
+  <p>
+    Hi! I’m Avigyan, an undergraduate in the
+    <strong>B.Stat (Hons)</strong> program at
+    <strong>ISI Kolkata</strong>, Class of
+    <strong>2028</strong>. This is my personal website —
+    a curated collection of academic notes, personal
+    reflections (both academic and non-academic),
+    and a growing archive of typesetting
+    and grammatical pet peeves.
+  </p>
+</section>
+
+<section>
+  <h2>Explore</h2>
+  <ul class="li-left-bar li-right-arrow">
+    <li>
+      <a href="{% url 'main:calculus_page' %}">Calculus</a>
+      — A collection of articles and problem sets bridging
+      high school calculus and real analysis.
+    </li>
+      
+    <li>
+      <a href="{% url 'main:olympiads_page' %}">Olympiads</a>
+      — References and selected materials I used while preparing
+        for Math Olympiads in high school.
+    </li>
+
+    <li>
+      <a href="{% url 'blog:post_index' %}">Blog</a>
+      — Reflections on life and other topics,
+        mostly non-academic in nature.
+    </li>
+
+    <li>
+      <a href="{% url 'archive:post_index' %}">Archive</a>
+      — Mostly math and academic posts.
+    </li>
+
+    <li>
+      <a href="{% url 'main:pet_peeves_page' %}">Pet Peeves</a>
+      — Nit-picky thoughts on code formatting,
+        typesetting, and grammar mistakes I’m
+        obsessed with.
+    </li>
+
+    <li>
+      <a href="{% url 'main:contact_page' %}">Contact</a>
+      — Links to my social media and other ways to reach me.
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h1 id="my-projects" class="anchored">My Projects</h1>
+  <ul class="li-left-bar">
+    <li>
+      <!-- TODO: add the link to repo -->
+        <a
+          href="www.google.com"
+          target="_blank"
+        ><strong>This Website</strong></a> —
+      Built from scratch using Django and Markdown.
+      Features include static pages,
+        a blog system, and math rendering
+        — all integrated with the elegance of
+        my favorite color scheme, Tokyo Night.
+    </li>
+
+    <li>
+        <a
+          href="https://github.com/Bubu-Droid/bon"
+          target="_blank"
+        ><strong>BON</strong></a> —
+      A problem database management system built
+        entirely in Python for storing
+        LaTeX-formatted content.  
+      It also supports integration with LaTeX documents.
+        A more detailed description of the project is
+        available in the
+        <a
+          href="https://github.com/Bubu-Droid/bon/blob/main/README.md"
+          target="_blank"
+          >README</a> file.
+    </li>
+
+    <li>
+        <a
+          href="https://github.com/Bubu-Droid/dotfiles/blob/main/texmf/tex/latex/sty/bubu.sty"
+          target="_blank"
+        ><strong>Custom LaTeX Styles</strong></a> —
+        A custom style file for typesetting notes in
+        LaTeX. It includes both a minimal style for
+        fast compiling and a more colorful and appealing
+        style for writing articles. Multiple
+        <a
+          href="https://github.com/Bubu-Droid/dotfiles/blob/main/texmf/tex/latex/sty/bubu.sty#L24"
+          target="_blank"
+          >user options</a> have been defined
+        to customize the design of
+        the document.
+    </li>
+
+    <li>
+      <a
+        href="https://github.com/Bubu-Droid/mini-projects-repo"
+        target="_blank"
+      ><strong>Miscellaneous Projects</strong></a> —
+      A repository which contains mini-projects which
+      are not notable enough to have a dedicated
+      repository for themselves.
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h1 id="about-me" class="anchored">About me</h1>
+    <p>
+      I’m a minimalist and perfectionist whom
+      you can often find fiddling with LaTeX
+      and writing scripts to make my workflow
+      smoother.
+      My current obsession is
+      analyzing and rewriting third party scripts
+      to better suit my setup. I mostly work in
+      Python, so most of my scripts
+      are written in it. Apart from that,
+      I sometimes dabble in
+      web-development as well.
+      Last but not the least — I use Arch BTW.
+      You can find
+      my Dotfiles at the 
+      <a
+        href="https://github.com/Bubu-Droid/dotfiles"
+        target="_blank"
+      >GitHub repository</a>.
+      I usually go by <strong>Bubu-Droid</strong> online.
+      On (AoPS), I’m known as <strong>kamatadu</strong>.
+    </p>
+
+    <p>
+      When I’m not crunching numbers or jabbing my
+      fingers at the keyboard, I enjoy playing the
+      bansuri (still learning), watching anime
+      (my
+      <a 
+        href="https://anilist.co/user/BubuDroid/"
+        target="_blank">AniList profile</a>), and
+      play video games.
+      I also watch motovlogs, listen to
+      music,
+      and recently got back into
+      Clash of Clans (you can find
+      me at <code>#POJCRJJUY</code> and
+      <code>#9U2UPJ8R9</code>).
+      I also have a YouTube channel,
+      which you can find
+      <a
+        href="https://www.youtube.com/@bubu-droid"
+        target="_blank">here</a>.
+    </p>
+
+    <p>
+      I listen to music a lot and I’m
+      currently working
+      on migrating my playlist of
+      over 1000 Liked Songs
+      from Spotify to YouTube Music
+      (yes, Spotify sucks) and sorting them
+      based on my arbitrary and biased
+      decision-making (did you get the reference?).
+      Currently, these two temporary
+      playlists are available
+    </p>
+
+    <ul class="ul-left-bar li-right-arrow ul-lower-gap">
+      <li>
+        <a
+        href="https://music.youtube.com/playlist?list=PLYljaexxmCtPnh6C4k_Cvs4wRYal8jpa7&si=hOP8ke5R_jLNuOiF"
+        target="_blank"
+      >Heart Touching Songs</a></li>
+      <li>
+        <a
+        href="https://music.youtube.com/playlist?list=PLYljaexxmCtNzcq6nDrJ-SCY8qpyiOFKl&si=zE58M8HQ8O1cF8RV"
+        target="_blank"
+      >Nostalgic Songs</a></li>
+    </ul>
+
+    <p>
+      I consider these as temporary because my music taste
+      has evolved a lot since the time I first made
+      them.
+
+      The final playlists are to be made available here
+    </p>
+
+    <ul class="ul-left-bar li-right-arrow ul-lower-gap">
+      <li>
+        <a
+      href="https://music.youtube.com/playlist?list=PLYljaexxmCtP8PnPHtSORJPiAy4QXxu_b&si=S3-L_483-0K2hiwW"
+      target="_blank"
+      >Tier 1 Songs</a></li>
+      <li>
+        <a
+      href="https://music.youtube.com/playlist?list=PLYljaexxmCtP8K63Q7oPjMRwj_3v4wTz5&si=nKH0Qm5fpt8Xwj5-"
+      target="_blank"
+      >Tier 2 Songs</a></li>
+      <li>
+        <a
+      href="https://music.youtube.com/playlist?list=PLYljaexxmCtMftkxenkWCdYOkseSwgBEV&si=ijKAcFEfeUIDFft5"
+      target="_blank"
+      >Tier 3 Songs</a></li>
+      <li>
+        <a
+      href="https://music.youtube.com/playlist?list=PLYljaexxmCtOESuxWktwirM67RxppPaM-&si=19DQBXjNlsyRiFGV"
+      target="_blank"
+      >Tier 4 Songs</a></li>
+      <li>
+        <a
+      href="https://music.youtube.com/playlist?list=PLYljaexxmCtMmDEGxbOsVTS_2xB8ToiRI&si=HGinsLd-g305ofS_"
+      target="_blank"
+      >Tier 5 Songs</a></li>
+    </ul>
+
+    <p>
+      I also have an ongoing playlist
+      dedicated entirely to flute covers
+      which you can find here
+    </p>
+
+  <ul class="ul-left-bar li-right-arrow ul-lower-gap">
+    <li>
+      <a
+        href="https://music.youtube.com/playlist?list=PLYljaexxmCtMBt3U9KQDbAPBkptixcZpl&si=haQ2iEyINnFxPuc0"
+        target="_blank"
+      >Heart Touching Flute Covers</a></li>
+  </ul>
+</section>
+
+</main>
+{% endblock %}

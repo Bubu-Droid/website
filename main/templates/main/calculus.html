@@ -1,0 +1,530 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/style.css' %}">
+{% endblock %}
+
+{% block title %}Calculus{% endblock %}
+{% block description %}A curated collection of notes,
+articles, and problem sets designed to bridge the gap
+between high school calculus and real analysis.{% endblock %}
+
+{% block main-content %}
+<main>
+<section>
+  <h1>Calculus</h1>
+
+  <p>
+    A collection of notes, handouts, and
+      problem sets aimed at bridging
+      high school calculus with real analysis.
+      To be fair, the difficulty and scope
+      of some of these articles go well beyond
+      ISI/CMI preparation. However, learning deeper
+      techniques in analysis often helps in developing
+      intuitions for simpler solutions
+      that might otherwise seem out of reach.
+  </p>
+
+  <p>
+    The articles are listed in
+      order I read them — or in the order
+      they’re best approached —
+      to avoid
+      jumping to harder topics without
+      sufficient background. In case any of
+      of the links break, a local
+      Google Drive copy of the articles can
+      be found
+      <a
+        href="https://drive.google.com/drive/folders/17eBo2hvbRIuBRXMz9g4YymH0t9NtpTc0?usp=sharing"
+        target="_blank"
+      >here</a>.
+      Most of the articles are from
+      <a
+        href="https://ghoshadi.wordpress.com/calculus/"
+        target="_blank"
+      >Aditya Da’s blog</a>. Make sure to check Aditya
+      Da’s blog
+      post for any typo(s) before reading the article.
+  </p>
+</section>
+
+<section>
+  <h2 id="seq-and-ser" class="anchored">Sequences and Series</h2>
+  <ol>
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/05/calculus-day-1.pdf"
+        target="_blank"
+        >Sequences and Limits</a>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/09/subsequences.pdf"
+        target="_blank"
+        >Subsequences</a>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/09/monotone-sequences.pdf"
+        target="_blank"
+        >Monotone Sequences</a> —
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/09/monotone-solutions.pdf"
+        target="_blank"
+      >Solutions</a>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/06/sandwich-theorem.pdf"
+        target="_blank"
+        >Sandwich Theorem</a> —
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/09/sandwich-solution.pdf"
+        target="_blank"
+      >Solutions</a>
+    </li>
+
+    <li>
+      Cauchy Sequence:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/07/cauchy_sequences-2.pdf"
+            target="_blank"
+            >Notes</a> —
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/09/cauchy-solutions.pdf"
+            target="_blank"
+            >Solutions</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/09/classnote-cauchy.pdf"
+            target="_blank"
+            >Class Note</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      Series of real numbers:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/09/series-2020.pdf"
+            target="_blank"
+            >Class Note</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/09/problems-on-series-new.pdf"
+            target="_blank"
+            >Problem Set</a> —
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/10/series-solutions.pdf"
+            target="_blank"
+            >Solutions</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/06/series-by-john-k.-hunter.pdf"
+            target="_blank"
+            >Notes 1</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/06/series-extra.pdf"
+            target="_blank"
+            >Notes 2</a>
+        </li>
+        </ul>
+      </li>
+
+    <li>
+      <a
+        href="https://drive.google.com/file/d/1Jpgl_TfGf7rop65qFo9J9exGLZsXr0Ub/view?usp=sharing"
+        target="_blank"
+        >The Role of LUB Axiom in Real Analysis</a>
+    </li>
+
+    <li>
+      Class Tests:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/06/xii_calculus_class_test.pdf"
+            target="_blank"
+            >Test 1</a> —
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/06/xii_calculus_class_test_solutions-1.pdf"
+            target="_blank"
+            >Solutions</a>
+        </li>
+        <li>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScgdjkEkBipLD4DbivJhXQd8pWoSFOlqQ9j03CiClbzKHTC_Q/viewform"
+            target="_blank"
+            >Test 2</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      Additional Problem Sets —
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/09/more_problems_on_sequences_and_series.pdf"
+        target="_blank"
+        >Extra Problems</a>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2 id="cont-and-lim-of-func" class="anchored">Continuity and Limit of a function</h2>
+  <ol>
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/07/some_problems_on_functions.pdf"
+        target="_blank"
+        >Introductory problem set on functions</a>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/02/defns_of_continuity_updated.pdf"
+        target="_blank"
+        >Definitions of Continuity</a>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/10/rationals-and-irrationals-edited.pdf"
+        target="_blank"
+        >A Tale of Rationals and Irrationals</a>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/10/thms_on_continuity.pdf"
+        target="_blank"
+        >Theorems on Continuity</a> —
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/10/cont-thms-soln.pdf"
+        target="_blank"
+        >Solutions</a>
+    </li>
+
+    <li>
+      Limit of a function:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/11/classnote-on-limits.pdf"
+            target="_blank"
+            >Class Note</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/08/limits-of-functions.pdf"
+            target="_blank"
+            >Notes</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/08/problems_on_limit_of_a_function.pdf"
+            target="_blank"
+            >Problem Set 1</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/11/calculate_limits.pdf"
+            target="_blank"
+            >Problem Set 2</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      Class Tests:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/08/calculus_class_test_2.pdf"
+            target="_blank"
+            >Test 1</a> —
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/08/xii_calculus_class_test_2_solutions.pdf"
+            target="_blank"
+            >Solutions</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/09/adv-xii-1st-week.pdf"
+            target="_blank"
+            >Test 2</a> —
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/04/calc_test_sept_2019_solutions.pdf"
+            target="_blank"
+            >Solutions</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/11/calc_test_2.pdf"
+            target="_blank"
+            >Test 3</a> —
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/11/calc-test-2-solution.pdf"
+            target="_blank"
+            >Solutions</a>,
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/11/discussing-class-test-2-1.pdf"
+            target="_blank"
+            >Discussions</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/10/uniform-continuity.pdf"
+        target="_blank"
+        >Notes on Uniform Continuity</a>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2 id="differentiation" class="anchored">Differentiation</h2>
+
+  <ol>
+    <li>
+      Introductory notes on differentiation:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/09/differentiable-functions-john-hunter.pdf"
+            target="_blank"
+            >Notes 1</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/09/limit-continuity-and-differentiability.pdf"
+            target="_blank"
+            >Notes 2</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/03/derivatives-basics-classnote.pdf"
+            target="_blank"
+            >Class Note</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/03/basic_problems_on_derivatives.pdf"
+            target="_blank"
+            >Problem Set</a> —
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/03/basic_problems_on_derivatives_solutions.pdf"
+            target="_blank"
+            >Solutions</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      Fermat’s theorem and the Mean Value Theorems:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/04/notes-mvt.pdf"
+            target="_blank"
+            >Class Note</a>
+        </li>
+        <li>
+          <a
+            href="https://home.iitk.ac.in/~psraj/mth101/lecture_notes/lecture6.pdf"
+            target="_blank"
+            >Notes</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/12/fermats_thm_and_the_mvts_problems.pdf"
+            target="_blank"
+            >Problem Set</a> —
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/12/fermats_thm_and_the_mvts_problems.pdf"
+            target="_blank"
+            >Solutions</a>
+        <//li>
+      </ul>
+    </li>
+
+    <li>
+      Application of Derivatives:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/12/results-for-appln-of-derivatives.pdf"
+            target="_blank"
+            >Results</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2020/12/problems-on-appln-of-derivatives.pdf"
+            target="_blank"
+            >Problem Set</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      Class Tests:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/12/12old_aditya_nov_2019.pdf"
+            target="_blank"
+            >Test 1</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/01/calc_test_3.pdf"
+            target="_blank"
+            >Test 2</a> —
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/04/calc_test_3_solns.pdf"
+            target="_blank"
+            >Solutions</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      L’Hôpital’s rule:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/07/lhopitals-rule-notes.pdf"
+            target="_blank"
+            >Notes</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/07/lhopitals-rule-problems.pdf"
+            target="_blank"
+            >Problem Set</a> —
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/07/lhopitals-rule-solutions.pdf"
+            target="_blank"
+            >Solutions</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      Convexity:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/02/convexity-classnote.pdf"
+            target="_blank"
+            >Class Note</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2023/06/convexity-1.pdf"
+            target="_blank"
+            >Problem Set</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      Taylor’s Theorem:
+      <ul>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/12/taylors-theorm-john-hunter.pdf"
+            target="_blank"
+            >Notes 1</a>
+        </li>
+        <li>
+          <a
+            href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/12/lecturer10.pdf"
+            target="_blank"
+            >Notes 2</a>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/12/stirlings-approximation-solved.pdf"
+        target="_blank"
+        >Notes on Stirling’s Approximation</a>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2 id="integration" class="anchored">Integration</h2>
+
+  <ol>
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/02/integration-day1-notes.pdf"
+        target="_blank"
+        >Notes 1</a> —
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/02/solutions-to-exc1.pdf"
+        target="_blank"
+        >Solutions</a>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/02/integration-notes-day2.pdf"
+        target="_blank"
+        >Notes 2</a> —
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/02/integration-exc2.pdf"
+        target="_blank"
+        >Solutions</a>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/02/integration-day3-notes.pdf"
+        target="_blank"
+        >Notes 3</a> —
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/02/integration-exc-3.pdf"
+        target="_blank"
+        >Solutions</a>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2021/02/integ-day4-notes.pdf"
+        target="_blank"
+        >Notes 4</a>
+    </li>
+
+    <li>
+      <a
+        href="https://ghoshadi.wordpress.com/wp-content/uploads/2019/12/e.pdf"
+        target="_blank"
+        >Several routes connecting to the number e</a>
+    </li>
+  </ol>
+</section>
+
+</main>
+{% endblock %}

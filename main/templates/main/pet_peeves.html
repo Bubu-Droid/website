@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/style.css' %}">
+{% endblock %}
+
+{% block title %}Pet Peeves{% endblock %}
+{% block description %}A list of nit-picky pet peeves
+on code formatting, typesetting, and grammar
+— things that bother me more than they should.{% endblock %}
+
+<div id="body-shadow"></div>
+{% block main-content %}
+<main>
+<section>
+  <h1>Pet Peeves</h1>
+  <p>
+    A curated list of small but persistent annoyances
+      I’ve encountered in coding style, LaTeX formatting,
+      and written language.
+      If you ever notice me being
+      inconsistent, feel free to call me out.
+
+  </p>
+</section>
+
+<section>
+  <h2 id="grammatical-pet-peeves" class="anchored">Grammatical Pet Peeves</h2>
+  <ol>
+    <li>
+      Use a consistent English dialect — I use American
+        English throughout, so for me, it’s <em>color</em>,
+        not <em>colour</em>.
+    </li>
+    <li>
+      Punctuate emojis properly. To be fair, there
+      isn’t any hard-and-fast rule for typesetting
+      emojis — these are just personal conventions
+      I like to follow:
+      <ul>
+        <li>
+          If the emoji comes at the end of a sentence that
+            also ends the paragraph, place it <em>after</em>
+            the period, separated by a space. 🙂
+        </li>
+        <li>
+          If the emoji comes at the end of a sentence
+            <em>within</em> a paragraph, place it
+            <em>before</em> the period 😮.
+            Otherwise, the emoji feels disconnected from
+            the sentence it belongs to.
+        </li>
+        <li>
+          If the emoji is followed by a punctuation mark
+            such as a comma 🤔, place it <em>before</em>
+            the comma.
+        </li>
+      </ul>
+    </li>
+    <li>
+      Punctuate text within parentheses properly — see 
+      <a
+        href="https://ell.stackexchange.com/a/1229/172902"
+        target="_blank">this explanation</a>.
+    </li>
+    <li>
+      Format spaces around slashes properly — see
+      <a
+        href="https://english.stackexchange.com/a/2134/481251"
+        target="_blank"
+        >this explanation</a>.
+    </li>
+    <li>
+      Use punctuation with abbreviations correctly — see
+      <a
+        href="https://editorsmanual.com/articles/punctuation-with-abbreviations/"
+        target="_blank"
+        >this explanation</a>.
+    </li>
+    <li>
+      Use punctuation with quotes properly — see
+      <a
+        href="https://www.hamilton.edu/academics/centers/writing/style/essentials/punctuation-of-quotations"
+        target="_blank"
+        >this explanation</a>.
+    </li>
+    <li>
+      Use dashes properly — see
+      <a
+        href="https://tex.stackexchange.com/a/3821/294631"
+        target="_blank"
+        >this explanation</a>.
+    </li>
+    <li>
+      Use periods at the end of list items properly — see
+      <a
+        href="https://www.reddit.com/r/grammar/comments/3zjr85/comment/cymqag1/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
+        target="_blank"
+        >this explanation</a>.
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2 id="latex-pet-peeves" class="anchored">LaTeX Pet Peeves</h2>
+  <p>
+    To start with, go through
+    <a
+    href="https://web.evanchen.cc/latex-style-guide.html"
+    target="_blank"
+    >Evan’s LaTeX Style Guide</a>. Also read
+    <a
+      href="https://web.evanchen.cc/handouts/LaTeXPetPeeve/LaTeXPetPeeve.pdf"
+      target="_blank"
+      >this</a>.
+  </p>
+  <ul class="ul-left-bar">
+    <li>
+      <p>
+        I agree with all the points that Evan mentioned above
+        except the one concerned about using
+        <code>\dots</code> instead of <code>\ldots</code>
+        or <code>\cdots</code>.
+      </p>
+
+      <p>
+        For example, when we are trying to render $10!$,
+        the viable options available to us using
+        <code>\dots</code> are
+        <code>1 \cdot 2 \dots 10</code> which gets rendered
+        as $1 \cdot 2 \dots 10$ and
+        <code>1 \cdot 2 \cdot \dots \cdot 10</code>
+        which gets rendered as
+        $1 \cdot 2 \cdot \dots \cdot 10$.
+      </p>
+
+      <p>
+        The first one does not look appealing enough
+          and the second one looks absolutely horrendous.
+
+          The only formatting which I think makes sense
+          here is
+          <code>1 \cdot 2 \cdot \ldots \cdot 10</code>
+          which gets rendered as
+          $1 \cdot 2 \cdot \ldots \cdot 10$. This
+          looks pretty relatively doesn’t it?
+      </p>
+
+      <p>
+        This is the reason I prefer using
+        <code>\cdots</code> and <code>\ldots</code>
+        to <code>\dots</code>
+        in order to maintain the consistent
+        formatting.
+      </p>
+    </li>
+  </ul>
+  <ol>
+    <li>
+      Use punctuation with math environments
+        just as you would in normal text.  
+      If a pause is needed before an equation,
+        insert a comma — otherwise, don’t.  
+      A mathematical text is, before everything else,
+        a text — see 
+      <a
+        href="https://tex.stackexchange.com/a/170691/294631"
+        target="_blank">this explanation</a>.
+    </li>
+    <li>
+      Do not capitalize
+      the word “theorem” when
+      referring to it by name.
+      Capitalize it only when referring to a
+      numbered theorem — see
+      <a
+        href="https://web.archive.org/web/20240530211409/www.maa.org/sites/default/files/pdf/pubs/General_Editorial_Guidelines.pdf"
+        target="_blank"
+        >this explanation</a>.
+        (I might’ve overlooked this somewhere —
+        if you spot one, please let me know.)
+    </li>
+    <li>
+      Use space correctly around math symbols — see
+      <a
+        href="https://tex.stackexchange.com/a/550956/294631"
+        target="_blank"
+        >this explanation</a>.
+    </li>
+    <li>
+      There should be one — and only one —
+        master QED for a single solution.  
+      You may use sub-QEDs for individual claims if needed.
+    </li>
+  </ol>
+</section>
+</main>
+{% endblock %}

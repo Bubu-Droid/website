@@ -1,0 +1,37 @@
+main {
+  grid-column: 1/4;
+  grid-row: 2/3;
+  width: 69%;
+  padding: 2rem;
+}
+
+main h1 {
+  text-align: left;
+}
+
+article {
+  min-width: 930px;
+  width: 75%;
+  padding: 3rem 5rem;
+  gap: 1em;
+  margin-top: 2rem;
+}
+
+article h2 {
+  font-size: 2rem;
+}
+
+article h3 {
+  font-size: 1.5rem;
+}
+
+article h4,
+article h5 {
+  font-size: 1.5rem;
+}
+
+article:hover {
+  background-color: var(--bg-alt);
+  transform: unset;
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
+}
