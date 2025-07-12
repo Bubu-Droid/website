@@ -1,6 +1,11 @@
 {% extends "error_base.html" %}
 
-{% block error-code %}403{% endblock %}
 {% block title %}403 — Access Forbidden{% endblock %}
 {% block description %}You don’t have permission to view this page.
 If you think this is a mistake, let me know.{% endblock %}
+
+{% block error-code %}403{% endblock %}
+{% block error-heading %}Access Forbidden{% endblock %}
+{% block error-body-desc %}You don’t have permission to view
+this page. If you believe this is an error,
+contact the site owner.{% endblock %}
