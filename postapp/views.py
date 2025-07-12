@@ -1,10 +1,12 @@
 import calendar
 import re
 
+from django.core.cache import cache
 from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404, render
 from django.utils.html import strip_tags
 from django.utils.safestring import mark_safe
+from django.views.decorators.cache import cache_page
 from markdown import markdown
 
 from .models import Post, PostTag
@@ -26,6 +28,7 @@ def bump_headings(html: str, levels: int) -> str:
     )
 
 
+@cache_page(60 * 30)
 def post_index(request):
     is_archive = request.resolver_match.namespace == "archive"
     posts = Post.objects.filter(is_archive=is_archive).order_by("-date")
@@ -62,6 +65,7 @@ def post_index(request):
     )
 
 
+@cache_page(60 * 10)
 def post_detail(request, slug):
     is_archive = request.resolver_match.namespace == "archive"
     post = get_object_or_404(Post, slug=slug, is_archive=is_archive)
@@ -146,6 +150,11 @@ def post_search(request):
 
 
 def get_sidebar_data(is_archive):
+    cache_key = f"sidebar_data_{'archive' if is_archive else 'blog'}"
+    cached = cache.get(cache_key)
+    if cached:
+        return cached
+
     posts = Post.objects.filter(is_archive=is_archive)
     post_timeline = {}
     for post in posts:
@@ -166,7 +175,10 @@ def get_sidebar_data(is_archive):
     suggested_posts = Post.objects.filter(
         is_archive=is_archive, suggested=True
     ).order_by("-date")
-    return post_timeline, tag_list, suggested_posts
+
+    result = (post_timeline, tag_list, suggested_posts)
+    cache.set(cache_key, result, 60 * 30)
+    return result
 
 
 def post_tag(request, tag):
