@@ -150,11 +150,6 @@ def post_search(request):
 
 
 def get_sidebar_data(is_archive):
-    cache_key = f"sidebar_data_{'archive' if is_archive else 'blog'}"
-    cached = cache.get(cache_key)
-    if cached:
-        return cached
-
     posts = Post.objects.filter(is_archive=is_archive)
     post_timeline = {}
     for post in posts:
@@ -177,7 +172,6 @@ def get_sidebar_data(is_archive):
     ).order_by("-date")
 
     result = (post_timeline, tag_list, suggested_posts)
-    cache.set(cache_key, result, 60 * 30)
     return result
 
 
