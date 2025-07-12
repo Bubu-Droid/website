@@ -2,6 +2,7 @@ import os
 
 from django.conf import settings
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 
 
@@ -36,3 +37,7 @@ class Post(models.Model):
                 return f.read()
         except FileNotFoundError:
             return f"Markdown file not found for slug ‘{self.slug}’"
+
+    def get_absolute_url(self):
+        namespace = "archive" if self.is_archive else "blog"
+        return reverse(f"{namespace}:post_detail", kwargs={"slug": self.slug})
