@@ -14,7 +14,6 @@
 {% endblock %}
 
 {% block aside-content %}
-  {% cache 600 sidebar_block_1 is_archive %}
   <h3 id="aside-search-heading">Search {{ heading }}</h3>
   <div class="nav-right" id="aside-search">
     <form action="{% url request.resolver_match.namespace|add:':post_search' %}" method="get" class="search-form">
@@ -86,7 +85,6 @@
     {% endfor %}
   </ul>
   {% endif %}
-  {% endcache %}
 {% endblock %}
 
 {% block nav-right %}
@@ -147,7 +145,6 @@
   {% endif %}
 </main>
 
-{% cache 600 sidebar_block_2 is_archive %}
 <aside id="sidebar">
   {% if suggested_posts %}
   <h3>Suggested Reads</h3>
@@ -212,5 +209,4 @@
   </ul>
   {% endif %}
 </aside>
-{% endcache %}
 {% endblock %}
