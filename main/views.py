@@ -28,6 +28,11 @@ def contact_page(request):
     return render(request, "main/contact.html")
 
 
+def trigger_error(request):
+    1 / 0  # This will raise ZeroDivisionError
+    return HttpResponse("This will never be reached.")
+
+
 def robots_txt(request):
     content = [
         "User-agent: *",
