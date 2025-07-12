@@ -31,7 +31,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["www.bubudroid.me", "127.0.0.1", ".localhost"]
 
-ADMINS = [("BubuDroid", "fufudadw@email.com")]
+ADMINS = [("BubuDroid", "fufudadw@gmail.com")]
 
 # TODO: un-comment this before pushing the code
 
