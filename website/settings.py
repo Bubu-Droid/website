@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ["www.bubudroid.me", "127.0.0.1", ".localhost"]
 
 ADMINS = [("BubuDroid", "fufudadw@gmail.com")]
 
-# TODO: un-comment this before pushing the code
+# TODO: uncomment this before deployment
 
 SECURE_SSL_REDIRECT = True
 
