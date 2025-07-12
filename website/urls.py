@@ -18,14 +18,33 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
+from django.views.decorators.cache import cache_page
+
+from main.views import robots_txt
+from postapp.sitemaps import PostSitemap, StaticViewSitemap
+
+sitemaps = {
+    "posts": PostSitemap,
+    "static": StaticViewSitemap,
+}
 
 urlpatterns = [
     path("super-secret-admin-path-69420/", admin.site.urls),
     path("", include("main.urls")),
     path("blog/", include(("postapp.urls", "postapp"), namespace="blog")),
     path("archive/", include(("postapp.urls", "postapp"), namespace="archive")),
+    path(
+        "sitemap.xml",
+        cache_page(60 * 60)(sitemap),
+        {"sitemaps": sitemaps},
+        name="sitemap",
+    ),
+    path("robots.txt", robots_txt, name="robots_txt"),
 ]
 
-if not settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# TODO: Remove this while deploying
+
+# if not settings.DEBUG:
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
