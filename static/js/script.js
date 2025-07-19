@@ -10,6 +10,19 @@ hamburger.addEventListener("click", () => {
   document.body.classList.toggle("no-scroll", isActive);
 });
 
+document.addEventListener("click", (event) => {
+  const clickedInsideSidebar = sidebar.contains(event.target);
+  const clickedOnHamburger = hamburger.contains(event.target);
+
+  const isSidebarActive = sidebar.classList.contains("active");
+
+  if (isSidebarActive && !clickedInsideSidebar && !clickedOnHamburger) {
+    sidebar.classList.remove("active");
+    shadow.style.display = "none";
+    document.body.classList.remove("no-scroll");
+  }
+});
+
 window.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
   const footer = document.querySelector("footer");
