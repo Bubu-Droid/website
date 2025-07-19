@@ -1,6 +1,6 @@
 import calendar
 
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.urls import reverse
 
 from .models import Post, PostTag
@@ -22,6 +22,9 @@ def create_tag(name):
     return tag
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class BlogIndexViewTests(TestCase):
     def test_blog_index_no_posts(self):
         response = self.client.get(reverse("blog:post_index"))
@@ -127,6 +130,9 @@ class BlogIndexViewTests(TestCase):
             create_tag("math")
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class BlogTagViewTests(TestCase):
     def test_tag_view_with_multiple_posts(self):
         math_tag = create_tag("math")
@@ -146,6 +152,9 @@ class BlogTagViewTests(TestCase):
         self.assertEqual(response.status_code, 404)
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class BlogDetailViewTests(TestCase):
     def test_detail_view_check_sidebar(self):
         cs_tag = create_tag("cs")
@@ -191,6 +200,9 @@ class BlogDetailViewTests(TestCase):
             create_post("Post B", "same-slug")
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class NamespaceIndexViewTest(TestCase):
     def test_index_post_in_correct_namespace(self):
         blog_post = create_post("Blog Post", "blog-post")
@@ -203,6 +215,9 @@ class NamespaceIndexViewTest(TestCase):
         self.assertNotIn(archive_post, blog_response.context["post_list"])
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class NamespaceDetailViewTest(TestCase):
     def test_detail_post_in_correct_namespace(self):
         blog_post = create_post("Blog Post", "blog-post")
@@ -219,6 +234,9 @@ class NamespaceDetailViewTest(TestCase):
         self.assertNotEqual(archive_response.context["post"], blog_post)
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class NamespaceTagViewTest(TestCase):
     def test_tag_post_in_correct_namespace(self):
         math_tag = create_tag("math")
@@ -234,6 +252,9 @@ class NamespaceTagViewTest(TestCase):
         self.assertNotIn(archive_post, blog_response.context["post_list"])
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class ArchiveIndexViewTests(TestCase):
     def test_archive_index_no_posts(self):
         response = self.client.get(reverse("archive:post_index"))
@@ -339,6 +360,9 @@ class ArchiveIndexViewTests(TestCase):
             create_tag("math")
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class ArchiveTagViewTests(TestCase):
     def test_tag_view_with_multiple_posts(self):
         math_tag = create_tag("math")
@@ -360,6 +384,9 @@ class ArchiveTagViewTests(TestCase):
         self.assertEqual(response.status_code, 404)
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class ArchiveDetailViewTests(TestCase):
     def test_detail_view_check_sidebar(self):
         cs_tag = create_tag("cs")
@@ -409,6 +436,9 @@ class ArchiveDetailViewTests(TestCase):
             create_post("Post B", "same-slug", is_archive=True)
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class BlogSearchViewTests(TestCase):
     def test_show_only_relevant_posts(self):
         post1 = create_post("Geometry", "geometry")
@@ -461,6 +491,9 @@ class BlogSearchViewTests(TestCase):
         self.assertContains(response, "No results found for your search query.")
 
 
+@override_settings(
+    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+)
 class ArchiveSearchViewTests(TestCase):
     def test_show_only_relevant_posts(self):
         post1 = create_post("Geometry", "geometry", is_archive=True)
