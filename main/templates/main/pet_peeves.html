@@ -20,7 +20,7 @@ that bother me more than they should.{% endblock %}
       I’ve encountered in coding style, LaTeX formatting,
       and written language.
       If you ever notice me being
-      inconsistent, feel free to call me out—I
+      inconsistent, feel free to call me out. I
       try to stick to my own rules, but occasional
       slips may have inadvertently crept in.
   </p>
@@ -30,14 +30,20 @@ that bother me more than they should.{% endblock %}
   <h2 id="grammatical-pet-peeves" class="anchored">Grammatical Pet Peeves</h2>
   <ol>
     <li>
-      Use a consistent English dialect—I use American
+      Use a consistent English dialect. I use American
         English throughout, so for me, it’s <em>color</em>,
         not <em>colour</em>.
     </li>
     <li>
+      Be consistent while using/not using the Oxford comma — see
+      <a
+        href="https://www.grammarly.com/blog/punctuation-capitalization/what-is-the-oxford-comma/"
+        target="_blank">this explanation</a>.
+    </li>
+    <li>
       Punctuate emojis properly. To be fair, there
       isn’t any hard-and-fast rule for typesetting
-      emojis—these are just personal conventions
+      emojis. These are just personal conventions
       I like to follow:
       <ul>
         <li>
@@ -125,59 +131,29 @@ that bother me more than they should.{% endblock %}
     <a
     href="https://web.evanchen.cc/latex-style-guide.html"
     target="_blank"
-    >Evan’s LaTeX Style Guide</a>. Also read
+    >Evan’s LaTeX Style Guide</a>. Also, read
     <a
       href="https://web.evanchen.cc/handouts/LaTeXPetPeeve/LaTeXPetPeeve.pdf"
       target="_blank"
       >this</a>.
   </p>
   <ul class="ul-left-bar">
-    <li>
-      <p>
-        I agree with all the points that Evan mentioned above
-        except the one concerned about using
-        <code>\dots</code> instead of <code>\ldots</code>
-        or <code>\cdots</code>.
-      </p>
-
-      <p>
-        For example, when we are trying to render $10!$,
-        the viable options available to us using
-        <code>\dots</code> are
-        <code>1 \cdot 2 \dots 10</code> which gets rendered
-        as $1 \cdot 2 \dots 10$ and
-        <code>1 \cdot 2 \cdot \dots \cdot 10</code>
-        which gets rendered as
-        $1 \cdot 2 \cdot \dots \cdot 10$.
-      </p>
-
-      <p>
-        The first one does not look appealing enough
-          and the second one looks absolutely horrendous.
-
-          The only formatting which I think makes sense
-          here is
-          <code>1 \cdot 2 \cdot \ldots \cdot 10</code>
-          which gets rendered as
-          $1 \cdot 2 \cdot \ldots \cdot 10$. This
-          relatively looks prettier doesn’t it?
-      </p>
-
-      <p>
-        This is the reason I prefer using
-        <code>\cdots</code> and <code>\ldots</code>
-        to <code>\dots</code>
-        in order to maintain the consistent
-        formatting.
-      </p>
-    </li>
   </ul>
   <ol>
+    <li>
+      Use <code>\times</code> or
+        <code>\cdot</code> for multiplication
+        depending upon the use case.
+        $$ \frac 12\times \frac 23
+        \times\dots\times \frac{n}{n+1}
+        \quad \text{ and } \quad
+        2\cdot \sin(x) \cdot \cos(x).$$
+    </li>
     <li>
       Use punctuation with math environments
         just as you would in normal text.  
       If a pause is needed before an equation,
-        insert a comma—otherwise, don’t.  
+        insert a comma; otherwise, don’t.  
       A mathematical text is, before everything else,
         a text — see 
       <a
@@ -203,7 +179,7 @@ that bother me more than they should.{% endblock %}
         >this explanation</a>.
     </li>
     <li>
-      There should be one—and only one—master
+      There should be one (and only one) master
         QED for a single solution.  
       You may use sub-QEDs for individual claims if needed.
     </li>
