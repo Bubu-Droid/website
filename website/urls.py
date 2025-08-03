@@ -44,7 +44,5 @@ urlpatterns = [
     path("robots.txt", robots_txt, name="robots_txt"),
 ]
 
-# TODO: Remove this while deploying
-
-# if not settings.DEBUG:
-#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+if not settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
