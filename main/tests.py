@@ -2,9 +2,9 @@ from django.test import TestCase, override_settings
 from django.urls import reverse
 
 
-@override_settings(
-    CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
-)
+# @override_settings(
+#     CACHES={"default": {"BACKEND": "django.core.cache.backends.dummy.DummyCache"}}
+# )
 class MainAppTests(TestCase):
     def test_static_pages(self):
         pages = [
