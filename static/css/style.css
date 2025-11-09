@@ -125,6 +125,10 @@ p {
   margin-bottom: var(--p-lower-gap);
 }
 
+ul {
+  list-style-position: inside;
+}
+
 ol {
   list-style-position: inside;
   display: flex;
