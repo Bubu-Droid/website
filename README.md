@@ -94,14 +94,15 @@ DEBUG = False
 ADMINS = [("<your-name>", "<receiver-email@gmail.com>")]
 ```
 
-> _**NOTE:**_ To generate an app password
+> [!IMPORTANT]
+> To generate an app password
 > for your `<sender-email@gmail.com` account,
 > follow [this video][apppasswdvid] and then
 > use the generated password as your `<app-password>`.
 
 ---
 
-### TODOs:
+### :memo: TODOs:
 
 - [ ] Create table of contents for long pages.
 - [ ] Add Ko-fi. (Maybe?)
