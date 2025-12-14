@@ -1,6 +1,5 @@
 rc.py
 db.sqlite3
-venv/
 cache/
 logs/
 staticfiles/
