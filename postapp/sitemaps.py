@@ -5,7 +5,7 @@ from .models import Post
 
 
 class PostSitemap(Sitemap):
-    changefreq = "weekly"
+    changefreq = "monthly"
 
     def items(self):
         return Post.objects.order_by("-date")
