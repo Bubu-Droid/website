@@ -15,6 +15,9 @@ article {
   padding: 3rem 5rem;
   gap: 1em;
   margin-top: 2rem;
+  border-left-width: 3px;
+  border-right-width: 3px;
+  box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
 }
 
 article h2 {

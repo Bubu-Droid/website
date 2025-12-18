@@ -27,6 +27,7 @@
   --ul-padding-left: 0.5rem;
   --p-lower-gap: 1rem;
 
+  color-scheme: dark;
   transition: all 0.3s ease;
 }
 
@@ -41,12 +42,16 @@ html,
 body {
   overflow-x: hidden;
   position: relative;
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg);
-  color: var(--fg);
+
+  /* background-color: var(--bg); */
+
+  /* color: var(--fg); */
   line-height: 1.6;
   min-height: 100vh;
   display: grid;
@@ -165,12 +170,6 @@ summary {
   margin-bottom: 0.5rem;
 }
 
-.li-right-arrow li::before {
-  content: "→";
-  color: var(--accent2);
-  font-weight: bold;
-}
-
 .li-left-bar {
   display: flex;
   flex-direction: column;
@@ -275,7 +274,8 @@ a:hover {
   background-color: var(--accent);
   color: var(--bg);
   border: none;
-  padding: 0.5rem 0.8rem;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   font-size: 1.25rem;
   cursor: pointer;
@@ -297,10 +297,27 @@ a:hover {
   transform: translateY(0);
 }
 
-mjx-container {
-  font-size: 1rem;
-  line-height: 1.6;
+#scroll-to-top-btn img {
+  display: block;
+  margin: auto;
 }
+
+mjx-container {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  /* overflow: auto; */
+}
+
+/* .mjx-wrapper { */
+/*   display: inline-flex; */
+/*   justify-content: center; */
+/*   width: 100%; */
+/* } */
+
+/* .mjx-wrapper.scaled > .MathJax { */
+/*   transform-origin: center center; */
+/*   display: inline-block; */
+/* } */
 
 .anchored {
   display: flex;
@@ -312,9 +329,10 @@ mjx-container {
   color: var(--accent);
   font-size: 0.7em;
   opacity: 0.6;
+  margin-left: 0.4rem;
   transition: opacity 0.3s ease;
-  position: absolute;
-  transform: translateX(-125%);
+  /* position: absolute; */
+  /* transform: translateX(-125%); */
 }
 
 .heading-anchor:hover {
@@ -342,12 +360,12 @@ mjx-container {
   pointer-events: none;
   position: absolute;
   height: calc(100vh - var(--header-height));
-  width: 350px;
+  width: 300px;
   background-color: var(--bg-alt);
   top: var(--header-height);
   left: 0;
   transform: translateX(-100%);
-  z-index: 1000;
+  z-index: 1003;
   overflow: auto;
   border-right: 4px solid var(--accent);
   border-top-right-radius: 6px;
@@ -560,7 +578,11 @@ mark {
   gap: 0.3rem;
 }
 
-/* Animations, Transitions and Global Styling */
+.ta-center {
+  text-align: center;
+}
+
+/* Animations, Transitions, and Global Styling */
 
 .link-underline-slide::after {
   content: "";

@@ -138,12 +138,14 @@
     display: none;
   }
 
-  #hamburger-sidebar {
-    width: 100vw;
-  }
-
   main {
     padding: 0 1rem;
     width: 90%;
+  }
+}
+
+@media (width <= 320px) {
+  #hamburger-sidebar {
+    width: 100vw;
   }
 }

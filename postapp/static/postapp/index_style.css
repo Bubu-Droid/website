@@ -1,3 +1,10 @@
+:root {
+  --thmbox-padding: 0.3rem 0.5rem;
+  --thmbox-margin: 0.5rem 0;
+  --thmbox-head-gap: 0.25rem;
+  --thmbox-head-weight: 600;
+}
+
 main {
   grid-column: 1/3;
   grid-row: 2/3;
@@ -204,7 +211,6 @@ article:hover .post-content::before {
 
 main h1 {
   font-size: 2.7em;
-  text-align: center;
 }
 
 article h2 a {
@@ -321,4 +327,122 @@ article h2 a:hover {
 .aside-post-link {
   position: relative;
   text-decoration: none;
+}
+
+/* Set up math boxes for math posts */
+
+/* TODO: Remove the additional manual dot, em dash, and
+* space formatting that is used in these boxes */
+
+.claim-box {
+  display: block;
+  border-left: 4px solid #4fa27a;
+  padding: var(--thmbox-padding);
+  background-color: #1f2b25;
+  margin: var(--thmbox-margin);
+}
+
+.claim-box::before {
+  content: var(--title, "Claim —");
+  font-weight: var(--thmbox-head-weight);
+  color: #9ece6a;
+}
+
+.theorem-box {
+  display: block;
+  border-left: 4px solid #7aa2f7;
+  padding: var(--thmbox-padding);
+  background-color: #1e2437;
+  margin: var(--thmbox-margin);
+}
+
+.theorem-box::before {
+  content: var(--title, "Theorem.");
+  display: block;
+  font-weight: var(--thmbox-head-weight);
+  margin-bottom: var(--thmbox-head-gap);
+  color: #7aa2f7;
+}
+
+.proposition-box {
+  display: block;
+  border-left: 4px solid #bb9af7;
+  padding: var(--thmbox-padding);
+  background-color: #26233a;
+  margin: var(--thmbox-margin);
+}
+
+.proposition-box::before {
+  content: var(--title, "Proposition.");
+  display: block;
+  font-weight: var(--thmbox-head-weight);
+  margin-bottom: var(--thmbox-head-gap);
+  color: #bb9af7;
+}
+
+.definition-box {
+  display: block;
+  border-left: 4px solid #f7768e;
+  padding: var(--thmbox-padding);
+  background-color: #2a1f22;
+  margin: var(--thmbox-margin);
+}
+
+.definition-box::before {
+  content: var(--title, "Definition.");
+  display: block;
+  font-weight: var(--thmbox-head-weight);
+  margin-bottom: var(--thmbox-head-gap);
+  color: #f7768e;
+}
+
+.example-box {
+  background-color: #4db6ac0e;
+  border: 1px solid #4db6ac;
+  padding: var(--thmbox-padding);
+  margin: var(--thmbox-margin);
+}
+
+.example-box::before {
+  content: var(--title, "Example.");
+  display: block;
+  font-weight: var(--thmbox-head-weight);
+  margin-bottom: var(--thmbox-head-gap);
+  color: #4db6ac;
+}
+
+.problem-box {
+  display: block;
+  padding: var(--thmbox-padding);
+  margin: var(--thmbox-margin);
+  border-left: 3px solid #7aa2f7;
+  background-color: #7aa2f714;
+  color: #c0caf5;
+}
+
+.problem-box::before {
+  content: var(--title, "Problem") " " var(--problem-number) ".";
+  font-weight: var(--thmbox-head-weight);
+  color: #7aa2f7;
+  margin-bottom: var(--thmbox-head-gap);
+}
+
+.proof-env::before {
+  content: var(--title, "Proof.");
+  font-style: italic;
+}
+
+.proof-env::after {
+  content: "□";
+  float: right;
+}
+
+.soln-env::before {
+  content: var(--title, "Solution.");
+  font-style: italic;
+}
+
+.soln-env::after {
+  content: "■";
+  float: right;
 }
