@@ -138,7 +138,6 @@
       output: {
         displayOverflow: 'linebreak',
         linebreaks: {
-          automatic: true,
           inline: true,
           width: '100%',
           lineleading: .2,
@@ -148,8 +147,8 @@
     };
     </script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
     <script defer src="{% static 'js/script.js' %}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
     {% block script %}{% endblock %}
   </body>
 </html>
