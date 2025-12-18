@@ -34,3 +34,15 @@
 </main>
 
 {% endblock %}
+
+{% block script %}
+<script>
+// Set up problem auto-numbering
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".problem-box").forEach((el, i) => {
+    el.style.setProperty("--problem-number", `"${i + 1}"`);
+    console.log("Entry found!");
+  });
+});
+</script>
+{% endblock %}

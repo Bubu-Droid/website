@@ -103,7 +103,7 @@
 <div id="body-shadow"></div>
 <main class="page-content">
   {% if tag_filter %}
-  <h1>
+  <h1 class="ta-center">
     {% if request.resolver_match.namespace == "archive" %}
     Archive Posts tagged with “{{ tag_filter.name }}”
     {% else %}
@@ -111,7 +111,7 @@
     {% endif %}
   </h1>
   {% else %}
-  <h1>{{ heading }}</h1>
+  <h1 class="ta-center">{{ heading }}</h1>
   {% endif %}
   {% if post_list %}
   {% for post in post_list %}
@@ -138,9 +138,9 @@
   {% endfor %}
   {% else %}
   {% if request.resolver_match.url_name == "post_search" %}
-  <h2>No results found for your search query.</h2>
+  <h2 class="ta-center">No results found for your search query.</h2>
   {% else %}
-  <h2>No posts yet!</h2>
+  <h2 class="ta-center">No posts yet!</h2>
   {% endif %}
   {% endif %}
 </main>
@@ -209,4 +209,16 @@
   </ul>
   {% endif %}
 </aside>
+{% endblock %}
+
+{% block script %}
+<script>
+// Set up problem auto-numbering
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".problem-box").forEach((el, i) => {
+    el.style.setProperty("--problem-number", `"${i + 1}"`);
+    console.log("Entry found!");
+  });
+});
+</script>
 {% endblock %}
