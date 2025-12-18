@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+
 {% block head %}
 <link rel="stylesheet" href="{% static 'main/style.css' %}">
 <link rel="stylesheet" href="{% static 'css/contact_responsive.css' %}">
@@ -111,4 +112,15 @@ and other ways to reach me.{% endblock %}
 </section>
 
 </main>
+{% endblock %}
+
+{% block script %}
+<script>
+// Set up dynamic email link so that
+// dumb bots can't scrape my mail
+const user = "fufudadw";
+const domain = "gmail.com";
+const email = `${user}@${domain}`;
+document.getElementById("email-link").href = `mailto:${email}`;
+</script>
 {% endblock %}
