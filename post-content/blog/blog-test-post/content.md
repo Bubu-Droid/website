@@ -1,7 +1,12 @@
-# Primary heading {.anchored}
+# Some Heading {.anchored}
 
-## Another one
+## Checking if images work in MD to HTML conversion
 
-### Yet another one
+Here is an image:
 
-$$f(x) = x^2$$
+![image](/static/post-content/blog/blog-test-post/image/he_da_goat.jpg)
+
+### Some Other Heading
+
+Here is some explanation as to why I put the image above:
+yes.
