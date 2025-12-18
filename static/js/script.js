@@ -1,3 +1,4 @@
+// Set up hamburger interaction
 const hamburger = document.getElementById("hamburger");
 const sidebar = document.getElementById("hamburger-sidebar");
 const shadow = document.getElementById("body-shadow");
@@ -23,6 +24,7 @@ document.addEventListener("click", (event) => {
   }
 });
 
+// Set position of header and footer
 window.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
   const footer = document.querySelector("footer");
@@ -36,3 +38,66 @@ window.addEventListener("DOMContentLoaded", () => {
     footer.offsetHeight + "px",
   );
 });
+
+// Set up header anchoring for linked headings
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .querySelectorAll(
+      "h1.anchored, h2.anchored, h3.anchored, h4.anchored, h5.anchored, h6.anchored",
+    )
+    .forEach(function (heading) {
+      if (!heading.id) return;
+
+      const anchor = document.createElement("a");
+      anchor.href = `#${heading.id}`;
+      anchor.className = "heading-anchor";
+      anchor.setAttribute("aria-label", "Anchor link to this section");
+      anchor.innerHTML = "🔗";
+
+      heading.appendChild(anchor);
+      // heading.insertBefore(anchor, heading.firstChild);
+    });
+});
+
+// Set up scroll to top button interaction
+const scrollBtn = document.getElementById("scroll-to-top-btn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 200) {
+    scrollBtn.classList.add("show");
+  } else {
+    scrollBtn.classList.remove("show");
+  }
+});
+
+scrollBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// Set up display math squishing for narrow width
+// function scaleOverflowingMath() {
+//   document.querySelectorAll(".MathJax[display=true]").forEach((mjx) => {
+//     let wrapper = mjx.parentElement;
+//
+//     if (!wrapper.classList.contains("mjx-wrapper")) {
+//       const w = document.createElement("span");
+//       w.className = "mjx-wrapper";
+//       mjx.replaceWith(w);
+//       w.appendChild(mjx);
+//       wrapper = w;
+//     }
+//
+//     // reset
+//     mjx.style.transform = "";
+//     wrapper.classList.remove("scaled");
+//
+//     const mathWidth = mjx.scrollWidth;
+//     const containerWidth = wrapper.clientWidth;
+//
+//     if (mathWidth > containerWidth && containerWidth > 0) {
+//       const scaleX = containerWidth / mathWidth;
+//       mjx.style.transform = `scaleX(${scaleX})`;
+//       wrapper.classList.add("scaled");
+//     }
+//   });
+// }

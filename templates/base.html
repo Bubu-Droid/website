@@ -1,50 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  {% load static %}
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="{% block description %}A personal website
+  <head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+      content="{% block description %}A personal website
       focused on mathematics—featuring blog posts,
       calculus articles, olympiad resources,
       pet peeves, and introspective
       thoughts on life.{% endblock %}">
-  <meta name="author" content="Avigyan Chakraborty">
-  <meta name="darkreader" content="no-dark">
-  <title>{% block title %}Home{% endblock %} • Bubu</title>
-  <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  {% block responsive-css %}
-  <link rel="stylesheet" href="{% static 'css/base_responsive.css' %}">
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
-  {% endblock %}
-  {% block head %}{% endblock %}
-</head>
+    <meta name="author" content="Avigyan Chakraborty">
+    <meta name="darkreader" content="no-dark">
+    <title>{% block title %}Home{% endblock %} • Bubu</title>
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block responsive-css %}
+    <link rel="stylesheet" href="{% static 'css/base_responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
+    {% block head %}{% endblock %}
+  </head>
 
-<body>
-  <header>
-    <nav aria-label="Main navigation">
-      <div class="nav-left">
-        <a
+  <body>
+    <header>
+      <nav aria-label="Main navigation">
+        <div class="nav-left">
+          <a
             href="{% url 'main:home_page' %}"
             class="light-box-shadow"
             title="Back to home page"
             rel="home">
-          <img src="{% static 'img/archlinux.svg' %}"
+            <img src="{% static 'img/archlinux.svg' %}"
               alt="Arch logo" class="arch-logo"
               height="16"
               width="16">cd ~/bubu<span class="cursor"></span></a>
-      </div>
-      <button id="hamburger">
-        <img
+        </div>
+        <button id="hamburger">
+          <img
             src="{% static 'img/hamburger.svg' %}"
             alt="Menu"
             height="25"
             width="25">
-      </button>
-      <ul class="nav-mid" id="header-nav">
+        </button>
+        <ul class="nav-mid" id="header-nav">
+          <li>
+            <a href="{% url 'main:home_page' %}" class="link-underline-slide nav-page-link">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'blog:post_index' %}" class="link-underline-slide nav-page-link">Blog</a>
+          </li>
+          <li>
+            <a href="{% url 'main:calculus_page' %}" class="link-underline-slide nav-page-link">Calculus</a>
+          </li>
+          <li>
+            <a href="{% url 'main:olympiads_page' %}" class="link-underline-slide nav-page-link">Olympiads</a>
+          </li>
+          <li>
+            <a href="{% url 'main:pet_peeves_page' %}" class="link-underline-slide nav-page-link">Pet Peeves</a>
+          </li>
+          <li>
+            <a href="{% url 'archive:post_index' %}" class="link-underline-slide nav-page-link">Archive</a>
+          </li>
+          <li>
+            <a href="{% url 'main:contact_page' %}" class="link-underline-slide nav-page-link">Contact</a>
+          </li>
+        </ul>
+        {% block nav-right %}{% endblock %}
+      </nav>
+    </header>
+
+    <div id="body-shadow"></div>
+    {% block main-content %}{% endblock %}
+    <button id="scroll-to-top-btn" title="Go to top">
+      <img
+        src="{% static 'img/up-arrow.svg' %}"
+        alt="Up"
+        height="20"
+        width="20">
+    </button>
+
+    <aside id="hamburger-sidebar">
+      <h3 id="hamburger-nav-heading">Navigation Links</h3>
+      <ul id="aside-nav">
         <li>
           <a href="{% url 'main:home_page' %}" class="link-underline-slide nav-page-link">Home</a>
         </li>
@@ -67,85 +106,50 @@
           <a href="{% url 'main:contact_page' %}" class="link-underline-slide nav-page-link">Contact</a>
         </li>
       </ul>
-      {% block nav-right %}{% endblock %}
-    </nav>
-  </header>
+      {% block aside-content %}{% endblock %}
+    </aside>
 
-  <div id="body-shadow"></div>
-  {% block main-content %}{% endblock %}
-  <button id="scroll-to-top-btn" title="Go to top">↑</button>
-
-  <aside id="hamburger-sidebar">
-    <h3 id="hamburger-nav-heading">Navigation Links</h3>
-    <ul id="aside-nav">
-      <li>
-        <a href="{% url 'main:home_page' %}" class="link-underline-slide nav-page-link">Home</a>
-      </li>
-      <li>
-        <a href="{% url 'blog:post_index' %}" class="link-underline-slide nav-page-link">Blog</a>
-      </li>
-      <li>
-        <a href="{% url 'main:calculus_page' %}" class="link-underline-slide nav-page-link">Calculus</a>
-      </li>
-      <li>
-        <a href="{% url 'main:olympiads_page' %}" class="link-underline-slide nav-page-link">Olympiads</a>
-      </li>
-      <li>
-        <a href="{% url 'main:pet_peeves_page' %}" class="link-underline-slide nav-page-link">Pet Peeves</a>
-      </li>
-      <li>
-        <a href="{% url 'archive:post_index' %}" class="link-underline-slide nav-page-link">Archive</a>
-      </li>
-      <li>
-        <a href="{% url 'main:contact_page' %}" class="link-underline-slide nav-page-link">Contact</a>
-      </li>
-    </ul>
-    {% block aside-content %}{% endblock %}
-  </aside>
-
-  <footer>
+    <footer>
     <p>
       ©{% now "Y" %} Avigyan Chakraborty. Built with Django and Tokyo Night color scheme elegance.
     </p>
   </footer>
-  <script>
-    const scrollBtn = document.getElementById("scroll-to-top-btn");
 
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 200) {
-        scrollBtn.classList.add("show");
-      } else {
-        scrollBtn.classList.remove("show");
-      }
-    });
-
-    scrollBtn.addEventListener("click", () => {
-      window.scrollTo({top: 0, behavior: "smooth"});
-    });
-  </script>
-  <script>
-    window.MathJax = {
+    <!-- Math setup -->
+    <script>
+    MathJax = {
       tex: {
         inlineMath: [
           ["$", "$"],
-          ["\\(", "\\)"],
         ],
         displayMath: [
           ["$$", "$$"],
-          ["\\[", "\\]"],
         ],
       },
-      svg: {fontCache: "global"},
+      svg: { fontCache: "global" },
+      startup: {
+        pageReady: () => {
+          return MathJax.startup.defaultPageReady().then(() => {
+            scaleOverflowingMath();
+            window.addEventListener("resize", scaleOverflowingMath);
+          });
+        },
+      },
+      output: {
+        displayOverflow: 'linebreak',
+        linebreaks: {
+          automatic: true,
+          inline: true,
+          width: '100%',
+          lineleading: .2,
+          LinebreakVisitor: null,
+        }
+      }
     };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script src="{% static 'js/anchors.js' %}"></script>
-  <script src="{% static 'js/script.js' %}"></script>
-  <script>
-    const user = "fufudadw";
-    const domain = "gmail.com";
-    const email = `${user}@${domain}`;
-    document.getElementById("email-link").href = `mailto:${email}`;
-  </script>
-</body>
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-svg.js"></script>
+    <script defer src="{% static 'js/script.js' %}"></script>
+    {% block script %}{% endblock %}
+  </body>
 </html>
