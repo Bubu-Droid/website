@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 
 from django.conf import settings
 from django.db import models
@@ -26,8 +26,8 @@ class Post(models.Model):
 
     def get_markdown_path(self):
         folder = "archive" if self.is_archive else "blog"
-        return os.path.join(
-            settings.BASE_DIR, "post-content", folder, f"{self.slug}/", "content.md"
+        return (
+            settings.BASE_DIR / "post-content" / folder / str(self.slug) / "content.md"
         )
 
     def get_markdown_content(self):
