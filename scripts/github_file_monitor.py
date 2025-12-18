@@ -13,24 +13,29 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "website.settings")
 django.setup()
 
 from website.rc import EMAIL_HOST_USER
-from website.settings import ADMINS
+from website.settings import ADMINS, DEBUG
+
+if DEBUG:
+    HOME = os.environ.get("HOME", "/bubu/home")
+else:
+    HOME = Path(__file__).resolve().parent.parent.parent
 
 FILES = [
     {
         "name": "evan.sty",
-        "path": "$HOME/github-files/evan.sty",
+        "path": f"{HOME}/github-files/evan.sty",
         "real_url": "https://github.com/vEnhance/dotfiles/blob/main/texmf/tex/latex/evan/evan.sty",
         "raw_url": "https://raw.githubusercontent.com/vEnhance/dotfiles/main/texmf/tex/latex/evan/evan.sty",
     },
     {
         "name": "strparse.py",
-        "path": "$HOME/github-files/strparse.py",
+        "path": f"{HOME}/github-files/strparse.py",
         "real_url": "https://github.com/vEnhance/von/blob/main/von/strparse.py",
         "raw_url": "https://raw.githubusercontent.com/vEnhance/von/main/von/strparse.py",
     },
     {
         "name": "export-ggb-clean-asy.py",
-        "path": "$HOME/github-files/export-ggb-clean-asy.py",
+        "path": f"{HOME}/github-files/export-ggb-clean-asy.py",
         "real_url": "https://github.com/vEnhance/dotfiles/blob/main/py-scripts/export-ggb-clean-asy.py",
         "raw_url": "https://raw.githubusercontent.com/vEnhance/dotfiles/main/py-scripts/export-ggb-clean-asy.py",
     },
@@ -56,6 +61,10 @@ def update_query(file_dict: dict) -> bool:
 
 
 if __name__ == "__main__":
+
+    for file in FILES:
+        Path(file["path"]).parent.mkdir(parents=True, exist_ok=True)
+
     try:
         changes = []
         no_changes = []
