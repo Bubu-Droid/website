@@ -67,7 +67,7 @@ To generate a new secret key, you may use this
 Then run the deployment server:
 
 ```bash
-python3 manage.py runserver --insecure
+python3 manage.py runserver
 ```
 
 ## 📧 Error Email Setup (Optional)
@@ -99,13 +99,6 @@ ADMINS = [("<your-name>", "<receiver-email@gmail.com>")]
 > for your `<sender-email@gmail.com` account,
 > follow [this video][apppasswdvid] and then
 > use the generated password as your `<app-password>`.
-
----
-
-### :memo: TODOs:
-
-- [ ] Create table of contents for long pages.
-- [ ] Add Ko-fi. (Maybe?)
 
 [websitelink]: https://www.bubudroid.me
 [djangosecretwebsite]: https://djecrety.ir/
