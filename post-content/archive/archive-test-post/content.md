@@ -6,7 +6,7 @@
     This is a theorem.
 </div>
 
-<div class="theorem-box" style="--title: 'Lemma (Some Lemma).';">
+<div class="theorem-box" style="--title: 'Lemma (Some Lemma)';">
     This is a lemma.
 </div>
 
@@ -14,7 +14,7 @@
     This is a proposition.
 </div>
 
-<div class="proposition-box" style="--title: 'Corollary (Some Corollary).';">
+<div class="proposition-box" style="--title: 'Corollary (Some Corollary)';">
     This is a corollary.
 </div>
 
@@ -30,7 +30,7 @@ Some content in this section.
 
 ## Claim, Problem, Proof and Solution Environments
 
-<div class="claim-box" style="--title: 'Claim (some claim) — ';">
+<div class="claim-box" style="--title: 'Claim (some claim)';">
     This is a claim.
 </div>
 
