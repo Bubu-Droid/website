@@ -4,6 +4,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'main/style.css' %}">
+<link rel="stylesheet" href="{% static 'main/pet_peeves_style.css' %}">
 {% endblock %}
 
 {% block title %}Pet Peeves{% endblock %}
@@ -27,7 +28,68 @@ that bother me more than they should.{% endblock %}
     </p>
   </section>
 
-  <!-- TODO: Add examples here instead of just referencing to them -->
+  <section>
+    <h2 id="latex-pet-peeves" class="anchored">LaTeX Pet Peeves</h2>
+    <p>
+      To start with, go through
+      <a
+        href="https://web.evanchen.cc/latex-style-guide.html"
+        target="_blank"
+      >Evan’s LaTeX Style Guide</a>. Also, read
+      <a
+        href="https://web.evanchen.cc/handouts/LaTeXPetPeeve/LaTeXPetPeeve.pdf"
+        target="_blank"
+      >this</a>.
+    </p>
+    <ul class="ul-left-bar">
+    </ul>
+    <ol>
+      <li>
+        Use <code>\times</code> or
+        <code>\cdot</code> for multiplication
+        depending upon the use case.
+        $$ \frac 12\times \frac 23
+        \times\dots\times \frac{n}{n+1}$$
+        $$\text{and}$$
+        $$2\cdot \sin(x) \cdot \cos(x).$$
+      </li>
+      <li>
+        Use punctuation with math environments
+        just as you would in normal text.  
+        If a pause is needed before an equation,
+        insert a comma; otherwise, don’t.  
+        A mathematical text is, before everything else,
+        a text — see 
+        <a
+          href="https://tex.stackexchange.com/a/170691/294631"
+          target="_blank">this explanation</a>.
+      </li>
+      <li>
+        Do not capitalize
+        the word “theorem” when
+        referring to it by name.
+        Capitalize it only when referring to it at the start
+        of a sentence — see
+        <a
+          href="https://web.archive.org/web/20240530211409/www.maa.org/sites/default/files/pdf/pubs/General_Editorial_Guidelines.pdf"
+          target="_blank"
+        >this explanation</a>.
+      </li>
+      <li>
+        Use space correctly around math symbols — see
+        <a
+          href="https://tex.stackexchange.com/a/550956/294631"
+          target="_blank"
+        >this explanation</a>.
+      </li>
+      <li>
+        There should be one (and only one) master
+        QED for a single solution.  
+        You may use sub-QEDs for individual claims if needed.
+      </li>
+    </ol>
+  </section>
+
   <section>
     <h2 id="grammatical-pet-peeves" class="anchored">Grammatical Pet Peeves</h2>
     <ol>
@@ -123,88 +185,17 @@ that bother me more than they should.{% endblock %}
       </li>
 
       <li>
-        Use apostrophe ‘s’ properly:
-        <ul>
-          <li>
-            You should add the apostrophe ‘s’ to the final
-            name if the people jointly own the same thing,
-            but add it to each name if they own separate
-            items. For example, “Stacy and Steve’s car”
-            implies one car shared by both, while
-            “Stacy’s and Steve’s cars” means they each
-            have their own.
-          </li>
-          <li>
-            You should write “Charles’s dog”
-            and not “Charles’ dog”.
-            The latter can become ambiguous in multiple
-            contexts.
-          </li>
-        </ul>
+        Use apostrophes properly — see
+        <a
+          href="https://www.grammarly.com/blog/punctuation-capitalization/apostrophe/"
+          target="_blank"
+        >this explanation</a>. (Specifically, note the difference
+        between
+        the use of apostrophes in individual and joint
+        possession.)
       </li>
     </ol>
   </section>
 
-  <section>
-    <h2 id="latex-pet-peeves" class="anchored">LaTeX Pet Peeves</h2>
-    <p>
-      To start with, go through
-      <a
-        href="https://web.evanchen.cc/latex-style-guide.html"
-        target="_blank"
-      >Evan’s LaTeX Style Guide</a>. Also, read
-      <a
-        href="https://web.evanchen.cc/handouts/LaTeXPetPeeve/LaTeXPetPeeve.pdf"
-        target="_blank"
-      >this</a>.
-    </p>
-    <ul class="ul-left-bar">
-    </ul>
-    <ol>
-      <li>
-        Use <code>\times</code> or
-        <code>\cdot</code> for multiplication
-        depending upon the use case.
-        $$ \frac 12\times \frac 23
-        \times\dots\times \frac{n}{n+1}$$
-        $$\text{and}$$
-        $$2\cdot \sin(x) \cdot \cos(x).$$
-      </li>
-      <li>
-        Use punctuation with math environments
-        just as you would in normal text.  
-        If a pause is needed before an equation,
-        insert a comma; otherwise, don’t.  
-        A mathematical text is, before everything else,
-        a text — see 
-        <a
-          href="https://tex.stackexchange.com/a/170691/294631"
-          target="_blank">this explanation</a>.
-      </li>
-      <li>
-        Do not capitalize
-        the word “theorem” when
-        referring to it by name.
-        Capitalize it only when referring to it at the start
-        of a sentence — see
-        <a
-          href="https://web.archive.org/web/20240530211409/www.maa.org/sites/default/files/pdf/pubs/General_Editorial_Guidelines.pdf"
-          target="_blank"
-        >this explanation</a>.
-      </li>
-      <li>
-        Use space correctly around math symbols — see
-        <a
-          href="https://tex.stackexchange.com/a/550956/294631"
-          target="_blank"
-        >this explanation</a>.
-      </li>
-      <li>
-        There should be one (and only one) master
-        QED for a single solution.  
-        You may use sub-QEDs for individual claims if needed.
-      </li>
-    </ol>
-  </section>
 </main>
 {% endblock %}
