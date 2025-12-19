@@ -331,9 +331,6 @@ article h2 a:hover {
 
 /* Set up math boxes for math posts */
 
-/* TODO: Remove the additional manual dot, em dash, and
-* space formatting that is used in these boxes */
-
 .claim-box {
   display: block;
   border-left: 4px solid #4fa27a;
@@ -343,7 +340,7 @@ article h2 a:hover {
 }
 
 .claim-box::before {
-  content: var(--title, "Claim —");
+  content: var(--title, "Claim") " — ";
   font-weight: var(--thmbox-head-weight);
   color: #9ece6a;
 }
@@ -357,7 +354,7 @@ article h2 a:hover {
 }
 
 .theorem-box::before {
-  content: var(--title, "Theorem.");
+  content: var(--title, "Theorem") ". ";
   display: block;
   font-weight: var(--thmbox-head-weight);
   margin-bottom: var(--thmbox-head-gap);
@@ -373,7 +370,7 @@ article h2 a:hover {
 }
 
 .proposition-box::before {
-  content: var(--title, "Proposition.");
+  content: var(--title, "Proposition") ". ";
   display: block;
   font-weight: var(--thmbox-head-weight);
   margin-bottom: var(--thmbox-head-gap);
@@ -389,7 +386,7 @@ article h2 a:hover {
 }
 
 .definition-box::before {
-  content: var(--title, "Definition.");
+  content: var(--title, "Definition") ". ";
   display: block;
   font-weight: var(--thmbox-head-weight);
   margin-bottom: var(--thmbox-head-gap);
@@ -404,7 +401,7 @@ article h2 a:hover {
 }
 
 .example-box::before {
-  content: var(--title, "Example.");
+  content: var(--title, "Example") ". ";
   display: block;
   font-weight: var(--thmbox-head-weight);
   margin-bottom: var(--thmbox-head-gap);
@@ -421,14 +418,14 @@ article h2 a:hover {
 }
 
 .problem-box::before {
-  content: var(--title, "Problem") " " var(--problem-number) ".";
+  content: var(--title, "Problem") " " var(--problem-number) ". ";
   font-weight: var(--thmbox-head-weight);
   color: #7aa2f7;
   margin-bottom: var(--thmbox-head-gap);
 }
 
 .proof-env::before {
-  content: var(--title, "Proof.");
+  content: var(--title, "Proof") ". ";
   font-style: italic;
 }
 
@@ -438,7 +435,7 @@ article h2 a:hover {
 }
 
 .soln-env::before {
-  content: var(--title, "Solution.");
+  content: var(--title, "Solution") ". ";
   font-style: italic;
 }
 
