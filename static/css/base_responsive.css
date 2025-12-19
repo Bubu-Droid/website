@@ -8,7 +8,14 @@
   }
 
   main {
-    width: 73%;
+    width: 80%;
+  }
+}
+
+@media (width <= 800px) {
+  #scroll-to-top-btn {
+    bottom: 1rem;
+    left: 1rem;
   }
 }
 
@@ -55,7 +62,7 @@
 
 @media (width <= 400px) {
   main {
-    padding: 0 1rem 0 2.5rem;
+    padding: 0 1rem;
     width: 90%;
   }
 }
