@@ -50,10 +50,10 @@ mkdir -p cache logs
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-touch website/rc.py
+touch website/config.py
 ```
 
-Set up `rc.py` with:
+Set up `config.py` with:
 
 ```python
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -73,7 +73,7 @@ python3 manage.py runserver
 ## 📧 Error Email Setup (Optional)
 
 To enable error emails (e.g., for 500 Internal Server Errors),
-add the following lines into `rc.py`.
+add the following lines into `config.py`.
 
 ```python
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
