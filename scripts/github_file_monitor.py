@@ -12,7 +12,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "website.settings")
 django.setup()
 
-from website.rc import EMAIL_HOST_USER
+from website.config import EMAIL_HOST_USER
 from website.settings import ADMINS, DEBUG
 
 if DEBUG:
