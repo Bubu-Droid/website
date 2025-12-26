@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 
 try:
-    from website.rc import *
+    from website.config import *
 except ImportError:
     pass
 
@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 
 try:
-    from website.rc import DEBUG
+    from website.config import DEBUG
 except ImportError:
     DEBUG = False
 
