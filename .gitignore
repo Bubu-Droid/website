@@ -1,6 +1,5 @@
-rc.py
+config.py
 db.sqlite3
 cache/
 logs/
 staticfiles/
-__pycache__/
