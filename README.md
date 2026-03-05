@@ -27,18 +27,6 @@ and secured via Cloudflare.
 | Email Alerts    | Gmail (SMTP + App Password) |
 | Version Control | Git + GitHub                |
 
-## 🔒 Security
-
-- TLS via Cloudflare + Full HTTPS mode
-- HSTS preloading with subdomain support
-- Secure headers: X-Content-Type-Options, X-Frame-Options, etc.
-- Django admin only accessible via superuser
-- Custom error logging and rotation
-
-## 🚀 Live
-
-Visit: [https://www.bubudroid.me][websitelink]
-
 ---
 
 ## 🛠️ Setup (Dev)
