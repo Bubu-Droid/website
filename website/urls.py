@@ -25,13 +25,14 @@ from django.views.decorators.cache import cache_page
 from main.views import robots_txt
 from postapp.sitemaps import PostSitemap, StaticViewSitemap
 
+from .config import ADMIN_PATH
+
 sitemaps = {
     "posts": PostSitemap,
     "static": StaticViewSitemap,
 }
 
 urlpatterns = [
-    path("super-secret-admin-path-69420/", admin.site.urls),
     path("", include("main.urls")),
     path("blog/", include(("postapp.urls", "postapp"), namespace="blog")),
     path("archive/", include(("postapp.urls", "postapp"), namespace="archive")),
@@ -42,6 +43,7 @@ urlpatterns = [
         name="sitemap",
     ),
     path("robots.txt", robots_txt, name="robots_txt"),
+    path(ADMIN_PATH, admin.site.urls),
 ]
 
 if settings.DEBUG:
