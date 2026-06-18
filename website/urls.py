@@ -20,12 +20,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
-from django.views.decorators.cache import cache_page
 
 from main.views import robots_txt
 from postapp.sitemaps import PostSitemap, StaticViewSitemap
-
-from .config import ADMIN_PATH
 
 sitemaps = {
     "posts": PostSitemap,
@@ -38,12 +35,11 @@ urlpatterns = [
     path("archive/", include(("postapp.urls", "postapp"), namespace="archive")),
     path(
         "sitemap.xml",
-        cache_page(60 * 60)(sitemap),
+        sitemap,
         {"sitemaps": sitemaps},
         name="sitemap",
     ),
     path("robots.txt", robots_txt, name="robots_txt"),
-    path(ADMIN_PATH, admin.site.urls),
 ]
 
 if settings.DEBUG:
