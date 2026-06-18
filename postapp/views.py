@@ -1,15 +1,13 @@
 import calendar
+import json
 import re
 
-from django.core.cache import cache
-from django.db.models import Count, Q
-from django.shortcuts import get_object_or_404, render
+from django.conf import settings
+from django.http import Http404
+from django.shortcuts import render
 from django.utils.html import strip_tags
 from django.utils.safestring import mark_safe
-from django.views.decorators.cache import cache_page
 from markdown import markdown
-
-from .models import Post, PostTag
 
 
 def bump_headings(html: str, levels: int) -> str:
@@ -28,17 +26,66 @@ def bump_headings(html: str, levels: int) -> str:
     )
 
 
-@cache_page(60 * 30)
+def get_markdown_content(is_archive: bool, slug: str) -> str:
+    folder = "archive" if is_archive else "blog"
+    path = settings.BASE_DIR / "post-content" / folder / slug / "content.md"
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+    except FileNotFoundError:
+        return f"Markdown file not found for slug ‘{slug}’"
+
+
+def get_posts(is_archive: bool):
+    if is_archive:
+        with open("db_archive.json", "r") as f:
+            posts = json.load(f)["posts"]
+    else:
+        with open("db_blog.json", "r") as f:
+            posts = json.load(f)["posts"]
+
+    return posts
+
+
+def get_sidebar_data(is_archive):
+    posts = get_posts(is_archive)
+    post_timeline = {}
+    for post in posts:
+        year = str(post["date"]["year"])
+        month = str(post["date"]["month"])
+        if year not in post_timeline:
+            post_timeline[year] = {}
+        if month not in post_timeline[year]:
+            post_timeline[year][month] = []
+        post_timeline[year][month].append(post)
+    post_timeline = dict(reversed(list(post_timeline.items())))
+
+    tag_dict = {}
+    suggested_posts = []
+
+    for post in posts:
+        for tag in post["tags"]:
+            tag_dict[tag] = tag_dict.get(tag, 0) + 1
+
+        if post["suggested"]:
+            suggested_posts.append(post)
+
+    tag_dict = {k: v for k, v in sorted(tag_dict.items(), key=lambda item: item[1])}
+    tag_list = list(tag_dict)
+
+    return post_timeline, tag_list, suggested_posts
+
+
 def post_index(request):
     is_archive = request.resolver_match.namespace == "archive"
-    posts = Post.objects.filter(is_archive=is_archive).order_by("-date")
+    posts = get_posts(is_archive)
     for post in posts:
-        md_content = post.get_markdown_content()
+        md_content = get_markdown_content(is_archive, post["slug"])
         html_content = markdown(
             md_content, extensions=["fenced_code", "toc", "codehilite", "attr_list"]
         )
         bumped_content = bump_headings(html_content, levels=2)
-        post.rendered_content = mark_safe(bumped_content)
+        rendered_content = mark_safe(bumped_content)
     post_timeline, tag_list, suggested_posts = get_sidebar_data(is_archive)
 
     if is_archive:
@@ -61,15 +108,21 @@ def post_index(request):
             "title": title,
             "description": desc,
             "heading": heading,
+            "rendered_content": rendered_content,
         },
     )
 
 
-@cache_page(60 * 10)
 def post_detail(request, slug):
     is_archive = request.resolver_match.namespace == "archive"
-    post = get_object_or_404(Post, slug=slug, is_archive=is_archive)
-    md_content = post.get_markdown_content()
+    posts = get_posts(is_archive)
+    for post in posts:
+        if post["slug"] == slug:
+            break
+    else:
+        raise Http404
+
+    md_content = get_markdown_content(is_archive, post["slug"])
     html_content = markdown(
         md_content, extensions=["fenced_code", "toc", "codehilite", "attr_list"]
     )
@@ -90,7 +143,7 @@ def post_detail(request, slug):
 def post_search(request):
     is_archive = request.resolver_match.namespace == "archive"
     query = request.GET.get("q", "").strip().lower()
-    posts = Post.objects.filter(is_archive=is_archive).order_by("-date")
+    posts = get_posts(is_archive)
     heading = "Search Results"
     title = "Search Results"
 
@@ -98,9 +151,9 @@ def post_search(request):
         query_words = query.split()
 
         def matches(post):
-            title = post.title.lower()
-            tags = [tag.name.lower() for tag in post.tags.all()]
-            content = post.get_markdown_content().lower()
+            title = post["title"].lower()
+            tags = [tag.name.lower() for tag in post["tags"]]
+            content = get_markdown_content(is_archive, post["slug"]).lower()
             return any(
                 word in title or any(word in tag for tag in tags) or word in content
                 for word in query_words
@@ -111,7 +164,7 @@ def post_search(request):
         heading = "Archive Posts" if is_archive else "Blog Posts"
         title = "Archive" if is_archive else "Blog"
     for post in posts:
-        md_content = post.get_markdown_content()
+        md_content = get_markdown_content(is_archive, post["slug"])
         html_content = markdown(
             md_content, extensions=["fenced_code", "toc", "codehilite", "attr_list"]
         )
@@ -126,7 +179,7 @@ def post_search(request):
                     flags=re.IGNORECASE,
                 )
 
-        post.rendered_content = mark_safe(highlighted)
+        rendered_content = mark_safe(highlighted)
 
     post_timeline, tag_list, suggested_posts = get_sidebar_data(is_archive)
     if is_archive:
@@ -145,56 +198,39 @@ def post_search(request):
             "title": title,
             "description": desc,
             "heading": heading,
+            "rendered_content": rendered_content,
         },
     )
 
 
-def get_sidebar_data(is_archive):
-    posts = Post.objects.filter(is_archive=is_archive)
-    post_timeline = {}
-    for post in posts:
-        year = str(post.date.year)
-        month = str(calendar.month_name[post.date.month])
-        if year not in post_timeline:
-            post_timeline[year] = {}
-        if month not in post_timeline[year]:
-            post_timeline[year][month] = []
-        post_timeline[year][month].append(post)
-    post_timeline = dict(reversed(list(post_timeline.items())))
-    tag_list = (
-        PostTag.objects.filter(posts__is_archive=is_archive)
-        .annotate(num_posts=Count("posts", filter=Q(posts__is_archive=is_archive)))
-        .filter(num_posts__gt=0)
-        .order_by("-num_posts")
-    )
-    suggested_posts = Post.objects.filter(
-        is_archive=is_archive, suggested=True
-    ).order_by("-date")
-
-    result = (post_timeline, tag_list, suggested_posts)
-    return result
-
-
 def post_tag(request, tag):
     is_archive = request.resolver_match.namespace == "archive"
-    tag_obj = get_object_or_404(PostTag, name=tag)
-    if is_archive:
-        title = f"Archive Posts tagged with “{tag_obj.name}”"
-        desc = f"Browse archived content tagged with “{tag_obj.name}” — including academic notes, math materials, and past resources."
-    else:
-        title = f"Blog Posts tagged with “{tag_obj.name}”"
-        desc = f"Explore blog posts tagged with “{tag_obj.name}” — covering ideas, math discussions, programming thoughts, and more."
+    posts = get_posts(is_archive)
+    post_list = []
+    tag_set = set()
 
-    post_list = Post.objects.filter(tags=tag_obj, is_archive=is_archive).order_by(
-        "-date"
-    )
+    for post in posts:
+        tag_set.update(set(post["tags"]))
+        if tag in post["tags"]:
+            post_list.append(post)
+
+    if tag not in tag_set:
+        raise Http404
+
+    if is_archive:
+        title = f"Archive Posts tagged with “{tag}”".format(tag=tag)
+        desc = f"Browse archived content tagged with “{tag}” — including academic notes, math materials, and past resources."
+    else:
+        title = f"Blog Posts tagged with “{tag}”"
+        desc = f"Explore blog posts tagged with “{tag}” — covering ideas, math discussions, programming thoughts, and more."
+
     for post in post_list:
-        md_content = post.get_markdown_content()
+        md_content = get_markdown_content(is_archive, post["slug"])
         html_content = markdown(
             md_content, extensions=["fenced_code", "toc", "codehilite", "attr_list"]
         )
         bumped_content = bump_headings(html_content, levels=2)
-        post.rendered_content = mark_safe(bumped_content)
+        rendered_content = mark_safe(bumped_content)
 
     post_timeline, tag_list, suggested_posts = get_sidebar_data(is_archive)
     return render(
@@ -202,11 +238,12 @@ def post_tag(request, tag):
         "postapp/index.html",
         {
             "post_list": post_list,
-            "tag_filter": tag_obj,
+            "tag_filter": tag,
             "post_timeline": post_timeline,
             "tag_list": tag_list,
             "suggested_posts": suggested_posts,
             "title": title,
             "description": desc,
+            "rendered_content": rendered_content,
         },
     )
