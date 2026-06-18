@@ -1,20 +1,24 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
 
-from .models import Post
 
-
+# TODO: check if this works properly
 class PostSitemap(Sitemap):
     changefreq = "monthly"
 
     def items(self):
-        return Post.objects.order_by("-date")
+        with open("db_blog.json", "r") as f:
+            all_posts = json.load(f)["posts"]
+        with open("db_archive.json", "r") as f:
+            all_posts.append(json.load(f))
 
-    def lastmod(self, obj):
-        return obj.date
+        return all_posts
 
-    def priority(self, obj):
-        return 0.7 if obj.suggested else 0.6
+    def lastmod(self, post):
+        return post.date
+
+    def priority(self, post):
+        return 0.7 if post.suggested else 0.6
 
 
 class StaticViewSitemap(Sitemap):
