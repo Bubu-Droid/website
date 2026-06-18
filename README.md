@@ -34,7 +34,7 @@ and secured via Cloudflare.
 ```bash
 git clone https://github.com/Bubu-Droid/website.git
 cd website
-mkdir -p cache logs
+mkdir -p logs
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
