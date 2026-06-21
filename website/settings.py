@@ -1,12 +1,31 @@
+import os
 from pathlib import Path
 
-from .config import *
+from dotenv import load_dotenv
+
+_ = load_dotenv()
+
+assert "DEBUG" in os.environ, "DEBUG missing!"
+assert "SECRET_KEY" in os.environ, "SECRET_KEY missing!"
+assert "EMAIL_HOST_USER" in os.environ, "EMAIL_HOST_USER missing!"
+assert "EMAIL_HOST_PASSWORD" in os.environ, "EMAIL_HOST_PASSWORD missing!"
+
+DEBUG = os.getenv("DEBUG")
+SECRET_KEY = os.getenv("SECRET_KEY")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 ALLOWED_HOSTS = ["www.bubudroid.me", "127.0.0.1", ".localhost"]
 
 ADMINS = [("BubuDroid", "fufudadw@gmail.com")]
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+SERVER_EMAIL = EMAIL_HOST_USER
 
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
