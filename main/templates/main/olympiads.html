@@ -1,602 +1,377 @@
 {% extends "base.html" %}
-
 {% load static %}
-
 {% block head %}
-<link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
 {% endblock %}
-
 {% block title %}Olympiads{% endblock %}
-{% block description %}A collection of articles, notes,
-and problem sets that I used during my preparation for
-mathematical Olympiads in high school.{% endblock %}
-
+{% block description %}
+  A collection of articles, notes,
+  and problem sets that I used during my preparation for
+  mathematical Olympiads in high school.
+{% endblock %}
 {% block main-content %}
-<main>
-  <section>
-    <h1>Olympiads</h1>
-    <p>
-      This page lists the books, handouts, and references
-      I used during my Math Olympiad preparation.
-      Alongside that, I’d like to share
-      a piece of
-      advice
-      I learned the hard way, i.e., by
-      making the mistake myself.
-    </p>
-
-    <ul class="ul-left-bar">
-      <li>
-        <p>
-          <strong>Never be afraid to try hard problems;
+  <main>
+    <section>
+      <h1>Olympiads</h1>
+      <p>
+        This page lists the books, handouts, and references
+        I used during my Math Olympiad preparation.
+        Alongside that, I’d like to share
+        a piece of
+        advice
+        I learned the hard way, i.e., by
+        making the mistake myself.
+      </p>
+      <ul class="ul-left-bar">
+        <li>
+          <p>
+            <strong>Never be afraid to try hard problems;
             don’t give up on them too easily.</strong>
-          <br>
-          I realized this during the final months
-          of my prep, when my problem-solving ability
-          seemed to hit a ceiling.
-          Trying harder problems exposes you to new ideas,
-          unexpected tools, and alternate ways
-          of thinking even if you don’t solve them.
-          Configuration geometry is a great example since
-          struggling with difficult setups teaches
-          you what kinds of perturbations or tricks
-          are worth exploring later.
-        </p>
-
-        <p>
-          It’s worth mentioning that if you’re in
-          <a
-            href="https://web.evanchen.cc/otis.html"
-            target="_blank"
-          >OTIS</a>, try starting
-          directly with the D-version of a unit
-          instead of going through the B-version
-          first. Even if you can’t solve
-          the problems initially, analyze the solutions
-          carefully
-          and go through the examples thoroughly. After all,
-          we humans are nothing but machine-learning
-          models with an additional parameter for emotions
-          added in.
-          The more you see, the more you learn,
-          and the more you can deliver.
-        </p>
-      </li>
-    </ul>
-
-    <p>
-      In case any of
-      of the links break, a remote
-      Google Drive copy of the articles can
-      be found
-      <a
-        href="https://drive.google.com/drive/folders/1nLfQvJwHJbbGu-oTcTr4eMWYgg96pC4a?usp=sharing"
-        target="_blank"
-      >here</a>.
-    </p>
-  </section>
-
-  <section>
-    <h2 id="geometry" class="anchored">Geometry</h2>
-    <ol>
-      <li>
-        <a
-          href="https://drive.google.com/file/d/1_h2jV6cmNuZMtTGktauEp2f1mw500q3D/view?usp=drive_link"
-          target="_blank"
-          >Euclidean Geometry in Mathematical Olympiads</a>,
-        by <a
-          href="https://web.evanchen.cc"
-          target="_blank"
-        >Evan Chen</a>
-      </li>
-      <li>
-        <a
-          href="https://drive.google.com/file/d/1KqDuDG1dToB_g7xx_LyuSna2ITI3SXrv/view?usp=drive_link"
-          target="_blank"
-          >A Beautiful Journey Through Olympiad Geometry</a>,
-        by Stefan Lozanovski
-        <ul>
-          <li>
-            Selected results from the book — <a
-              href="https://drive.google.com/drive/folders/1mn0D2vv9PS19bgZgV_e_AYQ_c31oXSE4?usp=sharing"
-              target="_blank"
-            >link</a>.
-          </li>
-        </ul>
-      </li>
-      <li>
-        <a
-          href="https://drive.google.com/file/d/11yuhjHjJb_FlFX0CjBMlq7MBPVw8OW5A/view?usp=drive_link"
-          target="_blank"
-          >Lemmas in Olympiad Geometry</a>,
-        by Cosmin Pohoata and Titu Andreescu
-        <ul>
-          <li>
-            Selected results from the book — <a
-              href="https://drive.google.com/drive/folders/1_hQk1GDstdi-yrogmQXl5ATMikdhh5sh?usp=sharing"
-              target="_blank"
-            >link</a> (incomplete).
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        Power of Point:
-        <ul>
-          <li>
-            <a
-              href="https://aops.com/community/c6h2513977p21293567"
-              target="_blank"
-            >POP handout</a>, by <a
-              href="https://aops.com/community/user/166446"
-              target="_blank"
-            >Kagebaka</a>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        Isogonal Conjugates:
-        <ul>
-          <li>
-            <a
-              href="https://cdn.aops.com/attachments/9/2/b1757aba17286188a31a18a0f28635e90f559a.pdf"
-              target="_blank"
-            >Isogonal Conjugates handout</a>, by <a
-              href="https://aops.com/community/user/277552"
-              target="_blank"
-            >WizardMath</a>
-          </li>
-          <li>
-            <a
-              href="https://cdn.aops.com/attachments/d/6/23f8c5d5b5d6ffae3ec6af45ef6746ac94d575.pdf"
-              target="_blank"
-            >Advanced Lemmas in Geometry handout</a>,
-            by <a
-              href="https://aops.com/community/user/291114"
-              target="_blank"
-            >Fedir Yudin</a>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        Anti-Steiner Point:
-        <ul>
-          <li>
-            <a
-              href="https://drive.google.com/file/d/1oHr0nLGhIh2jbkENwtuK1qQU-RxJpvuv/view?usp=sharing"
-              target="_blank"
-            >Anti-Steiner Point handout</a>,
-            by <a
-              href="https://aops.com/community/user/364681"
-              target="_blank"
-            >Nguyen Duc Toan</a>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        Config Geo:
-        <ul>
-          <li>
-            <a
-              href="https://aops.com/community/c6h2456133p20459825"
-              target="_blank"
-            >Murica</a>,
-            by <a
-              href="https://aops.com/community/user/398167"
-              target="_blank"
-            >i3435</a>
-            <ul>
-              <li>
-                Selected results from the handout — <a
-                  href="https://drive.google.com/drive/folders/1wn54nJHkQnpY0Ia_O3r9ixp7mQiTg1ut?usp=sharing"
-                  target="_blank"
-                >link</a>.
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        Poncelet Porism:
-        <ul>
-          <li>
-            <a
-              href="https://drive.google.com/file/d/15UNvhgktJIRR9LURWiqDPzzqImz6ED_X/view?usp=sharing"
-              target="_blank"
-            >Poncelet Porism handout</a>,
-            by Swapnaneel Da
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        DDIT:
-        <ul>
-          <li>
-            <a
-              href="https://aops.com/community/c6h1509866p8957048"
-              target="_blank"
-            >DDIT handout</a>,
-            by <a
-              href="https://aops.com/community/user/276783"
-              target="_blank"
-            >MarkBcc168</a>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        Polar Duality:
-        <ul>
-          <li>
-            <a
-              href="https://aops.com/community/c6h2110577p15272791"
-              target="_blank"
-            >Polar Duality handout</a>,
-            by <a
-              href="https://aops.com/community/user/474646"
-              target="_blank"
-            >riadok</a>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        Method of Moving Points:
-        <ul>
-          <li>
-            <a
-              href="https://aops.com/community/c473124h1763266"
-              target="_blank"
-            >Moving Points tutorial</a>,
-            by <a
-              href="https://aops.com/community/user/177841"
-              target="_blank"
-            >yayups</a>
-          </li>
-
-          <li>
-            <a
-              href="https://aops.com/community/c6h1952595p13480666"
-              target="_blank"
-            >MMP handout</a>,
-            by <a
-              href="https://aops.com/community/user/198258"
-              target="_blank"
-            >zacchro</a>,
-            <a
-              href="https://aops.com/community/user/177841"
-              target="_blank"
-            >yayups</a>, and
-            <a
-              href="https://aops.com/community/user/243741"
-              target="_blank"
-            >anantmudgal09</a>
-          </li>
-
-          <li>
-            <a
-              href="https://aops.com/community/c6h1884540p12835147"
-              target="_blank"
-            >MMP handout</a>,
-            by <a
-              href="https://aops.com/community/user/390171"
-              target="_blank"
-            >Vlados021</a>
-          </li>
-
-          <li>
-            <a
-              href="https://aops.com/community/c6h2271574p17689123"
-              target="_blank"
-            >$\mathbb{RP}^2$ handout</a>,
-            by <a
-              href="https://aops.com/community/user/472077"
-              target="_blank"
-            >Flash_Sloth</a>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        Conic Geo:
-        <ul>
-          <li><a
-              href="https://drive.google.com/file/d/1doloLmCv1rRGZHd6vpubzRZI0l2U30-B/view?usp=drive_link"
-              target="_blank"
-              >Geometry of Conics</a>,
-            by Alexey A. Zaslavsky and Arseniy Akopyan</li>
-          <li>
-            <a
-              href="https://drive.google.com/file/d/1mFGGMDI_QUisT3j0cvfX73a4PVxIwCCC/view?usp=sharing"
-              target="_blank"
-            >Conic Geo handout</a>, by DGO team
-          </li>
-          <li>
-            <a
-              href="https://drive.google.com/file/d/1ElKbdq0Xl-X5wC6c82hLMGy3wOwddL7L/view?usp=sharing"
-              target="_blank"
-            >Poncelet Conic handout</a>,
-            by <a
-              href="https://aops.com/community/user/118092"
-              target="_blank"
-            >Ivan Zelich</a>
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        Neuberg Cubic:
-        <ul>
-          <li>
-            <a
-              href="https://drive.google.com/file/d/138WyxshXmlAbLUnWr5CRfunFE-i06zRa/view?usp=sharing"
-              target="_blank"
-            >Neuberg Cubic handout</a>,
-            by <a
-              href="https://aops.com/community/user/118092"
-              target="_blank"
-            >Ivan Zelich</a> and
-            Xuming Liang
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        For problem practice, try solving problems
-        from
-        <a
-          href="https://web.evanchen.cc/otis.html"
-          target="_blank"
-        >OTIS</a> units.
-      </li>
-
-      <li>
-        Additional Resources:
-        <ul>
-          <li>
-            <a
-              href="https://faculty.evansville.edu/ck6/encyclopedia/etc.html"
-              target="_blank"
-            >Kimberling’s Encyclopedia of Triangle Centers (ETC)</a>
-          </li>
-
-          <li>
-            <a
-              href="http://bernard-gibert.fr/"
-              target="_blank"
-            >Catalog of Triangle Cubics</a>
-          </li>
-
-          <li>
-            <a
-              href="https://aops.com/community/c946900h1911664_properties_of_the_sharkydevil_point"
-              target="_blank"
-            >Properties of the Sharky-Devil Point</a>
-          </li>
-
-          <li>
-            <a
-              href="https://aops.com/community/c3103h1226690_parallelogram_isogonality_lemma"
-              target="_blank"
-            >Parallelogram Isogonality Lemma</a>
-          </li>
-
-          <li>
-            <a
-              href="https://aops.com/community/c2771h1181729_isogonal_line_lemma_updated"
-              target="_blank"
-            >Isogonal Line Lemma</a>
-          </li>
-
-          <li>
-            <a
-              href="https://aops.com/community/c6h66285p391497"
-              target="_blank"
-            >Circumcevian Ping-Pong Lemma</a>
-          </li>
-
-          <li>
-            A few Geo blogs:
-            <ul>
-              <li>
-                <a
-                  href="https://aops.com/community/c1035023"
-                  target="_blank"
-                >amar_04’s blog</a>
-              </li>
-              <li>
-                <a
-                  href="https://aops.com/community/c776104"
-                  target="_blank"
-                >AlastorMoody’s blog</a>
-              </li>
-              <li>
-                <a
-                  href="https://aops.com/community/c701535"
-                  target="_blank"
-                >math_pi_rate’s blog</a>
-              </li>
-              <li>
-                <a
-                  href="https://aops.com/community/c284651"
-                  target="_blank"
-                >TelvCohl’s blog</a>
-              </li>
-              <li>
-                <a
-                  href="https://aops.com/community/c1180874"
-                  target="_blank"
-                >Functional_equation’s blog</a>
-              </li>
-              <li>
-                <a
-                  href="https://mathworld.wolfram.com/topics/Grinberg.html"
-                  target="_blank"
-                >Darij Grinberg’s contribution to Wolfram MathWorld</a>
-              </li>
-            </ul>
-
-            To learn even more, you can check out their posts.
-            You can learn a lot of advanced tools by reading
-            solutions by people like
-            <a
-              href="https://aops.com/community/user/56597"
-              target="_blank"
-            >Luis González</a>,
-            <a
-              href="https://aops.com/community/user/226473"
-              target="_blank"
-            >TelvCohl</a>,
-            etc. (Let’s hope I’m not missing out names$\dots$ 💀)
-          </li>
-        </ul>
-      </li>
-    </ol>
-  </section>
-
-  <section>
-    <h2 id="number-theory" class="anchored">Number Theory</h2>
-    <ol>
-      <li>
-        <a
-          href="https://aops.com/community/c6h2344755"
-          target="_blank"
-        >Modern Olympiad Number Theory</a>,
-        by <a
-          href="https://aops.com/community/user/376213"
-          target="_blank"
-        >Aditya Khurmi</a>
-      </li>
-
-      <li>
-        For problem practice, try solving problems
-        from
-        <a
-          href="https://web.evanchen.cc/otis.html"
-          target="_blank"
-        >OTIS</a> units.
-      </li>
-    </ol>
-  </section>
-
-  <section>
-    <h2 id="combinatorics" class="anchored">Combinatorics</h2>
-    <ol>
-      <li>
-        An Exploration of Olympiad Combinatorics,
-        by <a
-          href="https://aops.com/community/user/774049"
-          target="_blank"
-        >Rushil Mathur</a>
-        <ul>
-          <li>
-            I haven’t personally gone through
-            this book, but I’ve heard
-            that it’s extremely well-written for
-            beginners.
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        <a
-          href="https://drive.google.com/file/d/1WPhkB0mihj5cJTLx23BB53-FcVlCmg6J/view?usp=drive_link"
-          target="_blank"
-          >Problem Solving Tactics</a>,
-        by A. Di Pasquale, N. Do, and D. Mathews
-      </li>
-
-      <li>
-        <a
-          href="https://drive.google.com/file/d/12v40QdgsFzz4pWJi6575PQGFQuIj0NNr/view?usp=drive_link"
-          >Problem-Solving Methods in Combinatorics</a>,
-        by <a
-            href="https://www.psoberon.com/"
-            target="_blank"
-          >Pablo Soberón</a>
-      </li>
-
-      <li>
-        For problem practice, try solving problems
-        from
-        <a
-          href="https://web.evanchen.cc/otis.html"
-          target="_blank"
-        >OTIS</a> units.
-      </li>
-
-      <li>
-        <a
-          href="https://aops.com/community/c6h601134p3568667"
-          target="_blank">Olympiad Combinatorics</a>, by
-        <a
-          href="https://aops.com/community/user/102876"
-          target="_blank"
-        >Pranav A. Sriram</a>
-        <ul>
-          <li>
-            Readers interested in exploring more can
-            check out this book.
-            (It’s quite challenging for beginners
-            as the learning curve is quite steep.)
-          </li>
-        </ul>
-      </li>
-    </ol>
-  </section>
-
-  <section>
-    <h2 id="algebra" class="anchored">Algebra</h2>
-    <ol>
-      <li>
-        <a
-          href="https://web.evanchen.cc/handouts/FuncEq-Intro/FuncEq-Intro.pdf"
-          target="_blank"
-        >Introduction to Functional Equations</a>, by <a
-          href="https://web.evanchen.cc"
-          target="_blank"
-        >Evan Chen</a>
-      </li>
-      <li>
-        <a
-          href="https://web.evanchen.cc/handouts/Ineq/en.pdf"
-          target="_blank"
-        >Introduction to Olympiad Inequalities</a>,
-        by <a
-          href="https://web.evanchen.cc"
-          target="_blank"
-        >Evan Chen</a>
-      </li>
-      <li>
-        <a
-          href="https://web.evanchen.cc/textbooks/OTIS-Excerpts.pdf"
-          target="_blank"
-        >OTIS Excerpts</a>, by <a
-          href="https://web.evanchen.cc"
-          target="_blank"
-        >Evan Chen</a>
-      </li>
-      <li>
-        For problem practice, try solving problems
-        from
-        <a
-          href="https://web.evanchen.cc/otis.html"
-          target="_blank"
-        >OTIS</a> units.
-        <ul>
-          <li>
-            I used to main Geometry, but
-            <code>D-wrapfn</code> remains
-            my favorite unit to this day.
-          </li>
-        </ul>
-      </li>
-    </ol>
-  </section>
-</main>
+            <br>
+            I realized this during the final months
+            of my prep, when my problem-solving ability
+            seemed to hit a ceiling.
+            Trying harder problems exposes you to new ideas,
+            unexpected tools, and alternate ways
+            of thinking even if you don’t solve them.
+            Configuration geometry is a great example since
+            struggling with difficult setups teaches
+            you what kinds of perturbations or tricks
+            are worth exploring later.
+          </p>
+          <p>
+            It’s worth mentioning that if you’re in
+            <a href="https://web.evanchen.cc/otis.html" target="_blank">OTIS</a>, try starting
+            directly with the D-version of a unit
+            instead of going through the B-version
+            first. Even if you can’t solve
+            the problems initially, analyze the solutions
+            carefully
+            and go through the examples thoroughly. After all,
+            we humans are nothing but machine-learning
+            models with an additional parameter for emotions
+            added in.
+            The more you see, the more you learn,
+            and the more you can deliver.
+          </p>
+        </li>
+      </ul>
+      <p>
+        In case any of
+        of the links break, a remote
+        Google Drive copy of the articles can
+        be found
+        <a href="https://drive.google.com/drive/folders/1nLfQvJwHJbbGu-oTcTr4eMWYgg96pC4a?usp=sharing"
+           target="_blank">here</a>.
+      </p>
+    </section>
+    <section>
+      <h2 id="geometry" class="anchored">Geometry</h2>
+      <ol>
+        <li>
+          <a href="https://drive.google.com/file/d/1_h2jV6cmNuZMtTGktauEp2f1mw500q3D/view?usp=drive_link"
+             target="_blank">Euclidean Geometry in Mathematical Olympiads</a>,
+          by <a href="https://web.evanchen.cc" target="_blank">Evan Chen</a>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1KqDuDG1dToB_g7xx_LyuSna2ITI3SXrv/view?usp=drive_link"
+             target="_blank">A Beautiful Journey Through Olympiad Geometry</a>,
+          by Stefan Lozanovski
+          <ul>
+            <li>
+              Selected results from the book — <a href="https://drive.google.com/drive/folders/1mn0D2vv9PS19bgZgV_e_AYQ_c31oXSE4?usp=sharing"
+    target="_blank">link</a>.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/11yuhjHjJb_FlFX0CjBMlq7MBPVw8OW5A/view?usp=drive_link"
+             target="_blank">Lemmas in Olympiad Geometry</a>,
+          by Cosmin Pohoata and Titu Andreescu
+          <ul>
+            <li>
+              Selected results from the book — <a href="https://drive.google.com/drive/folders/1_hQk1GDstdi-yrogmQXl5ATMikdhh5sh?usp=sharing"
+    target="_blank">link</a> (incomplete).
+            </li>
+          </ul>
+        </li>
+        <li>
+          Power of Point:
+          <ul>
+            <li>
+              <a href="https://aops.com/community/c6h2513977p21293567" target="_blank">POP handout</a>, by <a href="https://aops.com/community/user/166446" target="_blank">Kagebaka</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Isogonal Conjugates:
+          <ul>
+            <li>
+              <a href="https://cdn.aops.com/attachments/9/2/b1757aba17286188a31a18a0f28635e90f559a.pdf"
+                 target="_blank">Isogonal Conjugates handout</a>, by <a href="https://aops.com/community/user/277552" target="_blank">WizardMath</a>
+            </li>
+            <li>
+              <a href="https://cdn.aops.com/attachments/d/6/23f8c5d5b5d6ffae3ec6af45ef6746ac94d575.pdf"
+                 target="_blank">Advanced Lemmas in Geometry handout</a>,
+              by <a href="https://aops.com/community/user/291114" target="_blank">Fedir Yudin</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Anti-Steiner Point:
+          <ul>
+            <li>
+              <a href="https://drive.google.com/file/d/1oHr0nLGhIh2jbkENwtuK1qQU-RxJpvuv/view?usp=sharing"
+                 target="_blank">Anti-Steiner Point handout</a>,
+              by <a href="https://aops.com/community/user/364681" target="_blank">Nguyen Duc Toan</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Config Geo:
+          <ul>
+            <li>
+              <a href="https://aops.com/community/c6h2456133p20459825" target="_blank">Murica</a>,
+              by <a href="https://aops.com/community/user/398167" target="_blank">i3435</a>
+              <ul>
+                <li>
+                  Selected results from the handout — <a href="https://drive.google.com/drive/folders/1wn54nJHkQnpY0Ia_O3r9ixp7mQiTg1ut?usp=sharing"
+    target="_blank">link</a>.
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Poncelet Porism:
+          <ul>
+            <li>
+              <a href="https://drive.google.com/file/d/15UNvhgktJIRR9LURWiqDPzzqImz6ED_X/view?usp=sharing"
+                 target="_blank">Poncelet Porism handout</a>,
+              by Swapnaneel Da
+            </li>
+          </ul>
+        </li>
+        <li>
+          DDIT:
+          <ul>
+            <li>
+              <a href="https://aops.com/community/c6h1509866p8957048" target="_blank">DDIT handout</a>,
+              by <a href="https://aops.com/community/user/276783" target="_blank">MarkBcc168</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Polar Duality:
+          <ul>
+            <li>
+              <a href="https://aops.com/community/c6h2110577p15272791" target="_blank">Polar Duality handout</a>,
+              by <a href="https://aops.com/community/user/474646" target="_blank">riadok</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Method of Moving Points:
+          <ul>
+            <li>
+              <a href="https://aops.com/community/c473124h1763266" target="_blank">Moving Points tutorial</a>,
+              by <a href="https://aops.com/community/user/177841" target="_blank">yayups</a>
+            </li>
+            <li>
+              <a href="https://aops.com/community/c6h1952595p13480666" target="_blank">MMP handout</a>,
+              by <a href="https://aops.com/community/user/198258" target="_blank">zacchro</a>,
+              <a href="https://aops.com/community/user/177841" target="_blank">yayups</a>, and
+              <a href="https://aops.com/community/user/243741" target="_blank">anantmudgal09</a>
+            </li>
+            <li>
+              <a href="https://aops.com/community/c6h1884540p12835147" target="_blank">MMP handout</a>,
+              by <a href="https://aops.com/community/user/390171" target="_blank">Vlados021</a>
+            </li>
+            <li>
+              <a href="https://aops.com/community/c6h2271574p17689123" target="_blank">$\mathbb{RP}^2$ handout</a>,
+              by <a href="https://aops.com/community/user/472077" target="_blank">Flash_Sloth</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Conic Geo:
+          <ul>
+            <li>
+              <a href="https://drive.google.com/file/d/1doloLmCv1rRGZHd6vpubzRZI0l2U30-B/view?usp=drive_link"
+                 target="_blank">Geometry of Conics</a>,
+              by Alexey A. Zaslavsky and Arseniy Akopyan
+            </li>
+            <li>
+              <a href="https://drive.google.com/file/d/1mFGGMDI_QUisT3j0cvfX73a4PVxIwCCC/view?usp=sharing"
+                 target="_blank">Conic Geo handout</a>, by DGO team
+            </li>
+            <li>
+              <a href="https://drive.google.com/file/d/1ElKbdq0Xl-X5wC6c82hLMGy3wOwddL7L/view?usp=sharing"
+                 target="_blank">Poncelet Conic handout</a>,
+              by <a href="https://aops.com/community/user/118092" target="_blank">Ivan Zelich</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Neuberg Cubic:
+          <ul>
+            <li>
+              <a href="https://drive.google.com/file/d/138WyxshXmlAbLUnWr5CRfunFE-i06zRa/view?usp=sharing"
+                 target="_blank">Neuberg Cubic handout</a>,
+              by <a href="https://aops.com/community/user/118092" target="_blank">Ivan Zelich</a> and
+              Xuming Liang
+            </li>
+          </ul>
+        </li>
+        <li>
+          For problem practice, try solving problems
+          from
+          <a href="https://web.evanchen.cc/otis.html" target="_blank">OTIS</a> units.
+        </li>
+        <li>
+          Additional Resources:
+          <ul>
+            <li>
+              <a href="https://faculty.evansville.edu/ck6/encyclopedia/etc.html"
+                 target="_blank">Kimberling’s Encyclopedia of Triangle Centers (ETC)</a>
+            </li>
+            <li>
+              <a href="http://bernard-gibert.fr/" target="_blank">Catalog of Triangle Cubics</a>
+            </li>
+            <li>
+              <a href="https://aops.com/community/c946900h1911664_properties_of_the_sharkydevil_point"
+                 target="_blank">Properties of the Sharky-Devil Point</a>
+            </li>
+            <li>
+              <a href="https://aops.com/community/c3103h1226690_parallelogram_isogonality_lemma"
+                 target="_blank">Parallelogram Isogonality Lemma</a>
+            </li>
+            <li>
+              <a href="https://aops.com/community/c2771h1181729_isogonal_line_lemma_updated"
+                 target="_blank">Isogonal Line Lemma</a>
+            </li>
+            <li>
+              <a href="https://aops.com/community/c6h66285p391497" target="_blank">Circumcevian Ping-Pong Lemma</a>
+            </li>
+            <li>
+              A few Geo blogs:
+              <ul>
+                <li>
+                  <a href="https://aops.com/community/c1035023" target="_blank">amar_04’s blog</a>
+                </li>
+                <li>
+                  <a href="https://aops.com/community/c776104" target="_blank">AlastorMoody’s blog</a>
+                </li>
+                <li>
+                  <a href="https://aops.com/community/c701535" target="_blank">math_pi_rate’s blog</a>
+                </li>
+                <li>
+                  <a href="https://aops.com/community/c284651" target="_blank">TelvCohl’s blog</a>
+                </li>
+                <li>
+                  <a href="https://aops.com/community/c1180874" target="_blank">Functional_equation’s blog</a>
+                </li>
+                <li>
+                  <a href="https://mathworld.wolfram.com/topics/Grinberg.html"
+                     target="_blank">Darij Grinberg’s contribution to Wolfram MathWorld</a>
+                </li>
+              </ul>
+              To learn even more, you can check out their posts.
+              You can learn a lot of advanced tools by reading
+              solutions by people like
+              <a href="https://aops.com/community/user/56597" target="_blank">Luis González</a>,
+              <a href="https://aops.com/community/user/226473" target="_blank">TelvCohl</a>,
+              etc. (Let’s hope I’m not missing out names$\dots$ 💀)
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+    <section>
+      <h2 id="number-theory" class="anchored">Number Theory</h2>
+      <ol>
+        <li>
+          <a href="https://aops.com/community/c6h2344755" target="_blank">Modern Olympiad Number Theory</a>,
+          by <a href="https://aops.com/community/user/376213" target="_blank">Aditya Khurmi</a>
+        </li>
+        <li>
+          For problem practice, try solving problems
+          from
+          <a href="https://web.evanchen.cc/otis.html" target="_blank">OTIS</a> units.
+        </li>
+      </ol>
+    </section>
+    <section>
+      <h2 id="combinatorics" class="anchored">Combinatorics</h2>
+      <ol>
+        <li>
+          An Exploration of Olympiad Combinatorics,
+          by <a href="https://aops.com/community/user/774049" target="_blank">Rushil Mathur</a>
+          <ul>
+            <li>
+              I haven’t personally gone through
+              this book, but I’ve heard
+              that it’s extremely well-written for
+              beginners.
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/1WPhkB0mihj5cJTLx23BB53-FcVlCmg6J/view?usp=drive_link"
+             target="_blank">Problem Solving Tactics</a>,
+          by A. Di Pasquale, N. Do, and D. Mathews
+        </li>
+        <li>
+          <a href="https://drive.google.com/file/d/12v40QdgsFzz4pWJi6575PQGFQuIj0NNr/view?usp=drive_link">Problem-Solving Methods in Combinatorics</a>,
+          by <a href="https://www.psoberon.com/" target="_blank">Pablo Soberón</a>
+        </li>
+        <li>
+          For problem practice, try solving problems
+          from
+          <a href="https://web.evanchen.cc/otis.html" target="_blank">OTIS</a> units.
+        </li>
+        <li>
+          <a href="https://aops.com/community/c6h601134p3568667" target="_blank">Olympiad Combinatorics</a>, by
+          <a href="https://aops.com/community/user/102876" target="_blank">Pranav A. Sriram</a>
+          <ul>
+            <li>
+              Readers interested in exploring more can
+              check out this book.
+              (It’s quite challenging for beginners
+              as the learning curve is quite steep.)
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+    <section>
+      <h2 id="algebra" class="anchored">Algebra</h2>
+      <ol>
+        <li>
+          <a href="https://web.evanchen.cc/handouts/FuncEq-Intro/FuncEq-Intro.pdf"
+             target="_blank">Introduction to Functional Equations</a>, by <a href="https://web.evanchen.cc" target="_blank">Evan Chen</a>
+        </li>
+        <li>
+          <a href="https://web.evanchen.cc/handouts/Ineq/en.pdf" target="_blank">Introduction to Olympiad Inequalities</a>,
+          by <a href="https://web.evanchen.cc" target="_blank">Evan Chen</a>
+        </li>
+        <li>
+          <a href="https://web.evanchen.cc/textbooks/OTIS-Excerpts.pdf"
+             target="_blank">OTIS Excerpts</a>, by <a href="https://web.evanchen.cc" target="_blank">Evan Chen</a>
+        </li>
+        <li>
+          For problem practice, try solving problems
+          from
+          <a href="https://web.evanchen.cc/otis.html" target="_blank">OTIS</a> units.
+          <ul>
+            <li>
+              I used to main Geometry, but
+              <code>D-wrapfn</code> remains
+              my favorite unit to this day.
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+  </main>
 {% endblock %}

@@ -1,201 +1,169 @@
 {% extends "base.html" %}
-
 {% load static %}
-
 {% block head %}
-<link rel="stylesheet" href="{% static 'main/style.css' %}">
-<link rel="stylesheet" href="{% static 'main/pet_peeves_style.css' %}">
+  <link rel="stylesheet" href="{% static 'main/style.css' %}">
+  <link rel="stylesheet" href="{% static 'main/pet_peeves_style.css' %}">
 {% endblock %}
-
 {% block title %}Pet Peeves{% endblock %}
-{% block description %}A list of nit-picky pet peeves
-on code formatting, typesetting, and grammar—things
-that bother me more than they should.{% endblock %}
-
+{% block description %}
+  A list of nit-picky pet peeves
+  on code formatting, typesetting, and grammar—things
+  that bother me more than they should.
+{% endblock %}
 <div id="body-shadow"></div>
 {% block main-content %}
-<main>
-  <section>
-    <h1>Pet Peeves</h1>
-    <p>
-      A curated list of small but persistent annoyances
-      I’ve encountered in coding style, LaTeX formatting,
-      and written language.
-      If you ever notice me being
-      inconsistent, feel free to call me out. I
-      try to stick to my own rules, but occasional
-      slips may have inadvertently crept in.
-    </p>
-  </section>
-
-  <section>
-    <h2 id="latex-pet-peeves" class="anchored">LaTeX Pet Peeves</h2>
-    <p>
-      To start with, go through
-      <a
-        href="https://web.evanchen.cc/latex-style-guide.html"
-        target="_blank"
-      >Evan’s LaTeX Style Guide</a>. Also, read
-      <a
-        href="https://web.evanchen.cc/handouts/LaTeXPetPeeve/LaTeXPetPeeve.pdf"
-        target="_blank"
-      >this</a>.
-    </p>
-    <ul class="ul-left-bar">
-    </ul>
-    <ol>
-      <li>
-        Use <code>\times</code> or
-        <code>\cdot</code> for multiplication
-        depending upon the use case.
-        $$ \frac 12\times \frac 23
-        \times\dots\times \frac{n}{n+1}$$
-        $$\text{and}$$
-        $$2\cdot \sin(x) \cdot \cos(x).$$
-      </li>
-      <li>
-        Use punctuation with math environments
-        just as you would in normal text.
-        If a pause is needed before an equation,
-        insert a comma; otherwise, don’t.
-        A mathematical text is, before everything else,
-        a text — see
-        <a
-          href="https://tex.stackexchange.com/a/170691/294631"
-          target="_blank">this explanation</a>.
-      </li>
-      <li>
-        Do not capitalize
-        the word “theorem” when
-        referring to it by name.
-        Capitalize it only when referring to it at the start
-        of a sentence — see
-        <a
-          href="https://web.archive.org/web/20240530211409/www.maa.org/sites/default/files/pdf/pubs/General_Editorial_Guidelines.pdf"
-          target="_blank"
-        >this explanation</a>.
-      </li>
-      <li>
-        Use space correctly around math symbols — see
-        <a
-          href="https://tex.stackexchange.com/a/550956/294631"
-          target="_blank"
-        >this explanation</a>.
-      </li>
-      <li>
-        There should be one (and only one) master
-        QED for a single solution.
-        You may use sub-QEDs for individual claims if needed.
-      </li>
-    </ol>
-  </section>
-
-  <section>
-    <h2 id="grammatical-pet-peeves" class="anchored">Grammatical Pet Peeves</h2>
-    <ol>
-      <li>
-        Use a consistent English dialect. I use American
-        English throughout, so for me, it’s <em>color</em>,
-        not <em>colour</em>.
-      </li>
-      <li>
-        Be consistent while using/not using the Oxford comma — see
-        <a
-          href="https://www.grammarly.com/blog/punctuation-capitalization/what-is-the-oxford-comma/"
-          target="_blank">this explanation</a>.
-      </li>
-      <li>
-        Punctuate emojis properly. To be fair, there
-        isn’t any hard-and-fast rule for typesetting
-        emojis. These are just personal conventions
-        I like to follow:
-        <ul>
-          <li>
-            If the emoji comes at the end of a sentence that
-            also ends the paragraph, place it <em>after</em>
-            the period, separated by a space. 🙂
-          </li>
-          <li>
-            If the emoji comes at the end of a sentence
-            <em>within</em> a paragraph, place it
-            <em>before</em> the period 😮.
-            Otherwise, the emoji feels disconnected from
-            the sentence it belongs to.
-          </li>
-          <li>
-            If the emoji is followed by a punctuation mark
-            such as a comma 🤔, place it <em>before</em>
-            the comma.
-          </li>
-        </ul>
-      </li>
-      <li>
-        Punctuate text within parentheses properly — see
-        <a
-          href="https://www.grammarly.com/blog/punctuation-capitalization/parentheses-and-brackets/"
-          target="_blank">this explanation</a>.
-      </li>
-      <li>
-        Format spaces around slashes properly — see
-        <a
-          href="https://www.grammarly.com/blog/punctuation-capitalization/slash/"
-          target="_blank"
-        >this explanation</a>.
-      </li>
-      <li>
-        Use punctuation with abbreviations correctly — see
-        <a
-          href="https://editorsmanual.com/articles/punctuation-with-abbreviations/"
-          target="_blank"
-        >this explanation</a>.
-      </li>
-      <li>
-        Use punctuation with quotes properly — see
-        <a
-          href="https://www.grammarly.com/blog/punctuation-capitalization/quotation-marks/#4"
-          target="_blank"
-        >this explanation</a>.
-      </li>
-      <li>
-        Use dashes properly — see
-        <a
-          href="https://www.grammarly.com/blog/punctuation-capitalization/dash/"
-          target="_blank"
-        >this explanation</a>.
-      </li>
-      <li>
-        Use periods at the end of a bullet point if and
-        only if it is a complete sentence. Ideally,
-        a list of bullet points should have either
-        all sentences or all fragments, i.e., phrases that
-        are not complete sentences.
-      </li>
-      <li>
-        Use hyphens appropriately when listing multiple
-        hyphenated terms — see
-        <a
-          href="https://english.stackexchange.com/a/113433/481251"
-          target="_blank"
-        >this explanation</a>.
-      </li>
-      <li>
-        Typeset time properly when using the 12-hour format.
-        I follow the Chicago style for writing times,
-        such as “10:00 p.m.”
-      </li>
-
-      <li>
-        Use apostrophes properly — see
-        <a
-          href="https://www.grammarly.com/blog/punctuation-capitalization/apostrophe/"
-          target="_blank"
-        >this explanation</a>. (Specifically, note the difference
-        between
-        the use of apostrophes in individual and joint
-        possession.)
-      </li>
-    </ol>
-  </section>
-
-</main>
+  <main>
+    <section>
+      <h1>Pet Peeves</h1>
+      <p>
+        A curated list of small but persistent annoyances
+        I’ve encountered in coding style, LaTeX formatting,
+        and written language.
+        If you ever notice me being
+        inconsistent, feel free to call me out. I
+        try to stick to my own rules, but occasional
+        slips may have inadvertently crept in.
+      </p>
+    </section>
+    <section>
+      <h2 id="latex-pet-peeves" class="anchored">LaTeX Pet Peeves</h2>
+      <p>
+        To start with, go through
+        <a href="https://web.evanchen.cc/latex-style-guide.html" target="_blank">Evan’s LaTeX Style Guide</a>. Also, read
+        <a href="https://web.evanchen.cc/handouts/LaTeXPetPeeve/LaTeXPetPeeve.pdf"
+           target="_blank">this</a>.
+      </p>
+      <ul class="ul-left-bar">
+      </ul>
+      <ol>
+        <li>
+          Use <code>\times</code> or
+          <code>\cdot</code> for multiplication
+          depending upon the use case.
+          $$ \frac 12\times \frac 23
+          \times\dots\times \frac{n}{n+1}$$
+          $$\text{and}$$
+          $$2\cdot \sin(x) \cdot \cos(x).$$
+        </li>
+        <li>
+          Use punctuation with math environments
+          just as you would in normal text.
+          If a pause is needed before an equation,
+          insert a comma; otherwise, don’t.
+          A mathematical text is, before everything else,
+          a text — see
+          <a href="https://tex.stackexchange.com/a/170691/294631" target="_blank">this explanation</a>.
+        </li>
+        <li>
+          Do not capitalize
+          the word “theorem” when
+          referring to it by name.
+          Capitalize it only when referring to it at the start
+          of a sentence — see
+          <a href="https://web.archive.org/web/20240530211409/www.maa.org/sites/default/files/pdf/pubs/General_Editorial_Guidelines.pdf"
+             target="_blank">this explanation</a>.
+        </li>
+        <li>
+          Use space correctly around math symbols — see
+          <a href="https://tex.stackexchange.com/a/550956/294631" target="_blank">this explanation</a>.
+        </li>
+        <li>
+          There should be one (and only one) master
+          QED for a single solution.
+          You may use sub-QEDs for individual claims if needed.
+        </li>
+      </ol>
+    </section>
+    <section>
+      <h2 id="grammatical-pet-peeves" class="anchored">Grammatical Pet Peeves</h2>
+      <ol>
+        <li>
+          Use a consistent English dialect. I use American
+          English throughout, so for me, it’s <em>color</em>,
+          not <em>colour</em>.
+        </li>
+        <li>
+          Be consistent while using/not using the Oxford comma — see
+          <a href="https://www.grammarly.com/blog/punctuation-capitalization/what-is-the-oxford-comma/"
+             target="_blank">this explanation</a>.
+        </li>
+        <li>
+          Punctuate emojis properly. To be fair, there
+          isn’t any hard-and-fast rule for typesetting
+          emojis. These are just personal conventions
+          I like to follow:
+          <ul>
+            <li>
+              If the emoji comes at the end of a sentence that
+              also ends the paragraph, place it <em>after</em>
+              the period, separated by a space. 🙂
+            </li>
+            <li>
+              If the emoji comes at the end of a sentence
+              <em>within</em> a paragraph, place it
+              <em>before</em> the period 😮.
+              Otherwise, the emoji feels disconnected from
+              the sentence it belongs to.
+            </li>
+            <li>
+              If the emoji is followed by a punctuation mark
+              such as a comma 🤔, place it <em>before</em>
+              the comma.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Punctuate text within parentheses properly — see
+          <a href="https://www.grammarly.com/blog/punctuation-capitalization/parentheses-and-brackets/"
+             target="_blank">this explanation</a>.
+        </li>
+        <li>
+          Format spaces around slashes properly — see
+          <a href="https://www.grammarly.com/blog/punctuation-capitalization/slash/"
+             target="_blank">this explanation</a>.
+        </li>
+        <li>
+          Use punctuation with abbreviations correctly — see
+          <a href="https://editorsmanual.com/articles/punctuation-with-abbreviations/"
+             target="_blank">this explanation</a>.
+        </li>
+        <li>
+          Use punctuation with quotes properly — see
+          <a href="https://www.grammarly.com/blog/punctuation-capitalization/quotation-marks/#4"
+             target="_blank">this explanation</a>.
+        </li>
+        <li>
+          Use dashes properly — see
+          <a href="https://www.grammarly.com/blog/punctuation-capitalization/dash/"
+             target="_blank">this explanation</a>.
+        </li>
+        <li>
+          Use periods at the end of a bullet point if and
+          only if it is a complete sentence. Ideally,
+          a list of bullet points should have either
+          all sentences or all fragments, i.e., phrases that
+          are not complete sentences.
+        </li>
+        <li>
+          Use hyphens appropriately when listing multiple
+          hyphenated terms — see
+          <a href="https://english.stackexchange.com/a/113433/481251"
+             target="_blank">this explanation</a>.
+        </li>
+        <li>
+          Typeset time properly when using the 12-hour format.
+          I follow the Chicago style for writing times,
+          such as “10:00 p.m.”
+        </li>
+        <li>
+          Use apostrophes properly — see
+          <a href="https://www.grammarly.com/blog/punctuation-capitalization/apostrophe/"
+             target="_blank">this explanation</a>. (Specifically, note the difference
+          between
+          the use of apostrophes in individual and joint
+          possession.)
+        </li>
+      </ol>
+    </section>
+  </main>
 {% endblock %}
