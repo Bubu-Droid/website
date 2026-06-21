@@ -1,6 +1,6 @@
-config.py
 db.sqlite3
 cache/
 logs/
 staticfiles/
 __pycache__/
+.env
