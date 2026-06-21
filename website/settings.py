@@ -10,7 +10,7 @@ assert "SECRET_KEY" in os.environ, "SECRET_KEY missing!"
 assert "EMAIL_HOST_USER" in os.environ, "EMAIL_HOST_USER missing!"
 assert "EMAIL_HOST_PASSWORD" in os.environ, "EMAIL_HOST_PASSWORD missing!"
 
-DEBUG = os.getenv("DEBUG")
+DEBUG = os.getenv("DEBUG") == "TRUE"
 SECRET_KEY = os.getenv("SECRET_KEY")
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
