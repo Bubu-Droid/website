@@ -1,4 +1,3 @@
-import calendar
 import json
 import re
 
@@ -43,11 +42,10 @@ def get_posts(is_archive: bool):
     else:
         with open("db_blog.json", "r") as f:
             posts = json.load(f)["posts"]
-
     return posts
 
 
-def get_sidebar_data(is_archive):
+def get_sidebar_data(is_archive: bool):
     posts = get_posts(is_archive)
     post_timeline = {}
     for post in posts:
@@ -58,7 +56,7 @@ def get_sidebar_data(is_archive):
         if month not in post_timeline[year]:
             post_timeline[year][month] = []
         post_timeline[year][month].append(post)
-    post_timeline = dict(reversed(list(post_timeline.items())))
+    # post_timeline = dict(reversed(list(post_timeline.items())))
 
     tag_dict = {}
     suggested_posts = []
@@ -71,7 +69,7 @@ def get_sidebar_data(is_archive):
             suggested_posts.append(post)
 
     tag_dict = {k: v for k, v in sorted(tag_dict.items(), key=lambda item: item[1])}
-    tag_list = list(tag_dict)
+    tag_list = list(tag_dict.keys())
 
     return post_timeline, tag_list, suggested_posts
 
@@ -79,6 +77,8 @@ def get_sidebar_data(is_archive):
 def post_index(request):
     is_archive = request.resolver_match.namespace == "archive"
     posts = get_posts(is_archive)
+    rendered_content = ""
+
     for post in posts:
         md_content = get_markdown_content(is_archive, post["slug"])
         html_content = markdown(
@@ -146,13 +146,14 @@ def post_search(request):
     posts = get_posts(is_archive)
     heading = "Search Results"
     title = "Search Results"
+    rendered_content = ""
 
     if query:
         query_words = query.split()
 
         def matches(post):
             title = post["title"].lower()
-            tags = [tag.name.lower() for tag in post["tags"]]
+            tags = [tag.lower() for tag in post["tags"]]
             content = get_markdown_content(is_archive, post["slug"]).lower()
             return any(
                 word in title or any(word in tag for tag in tags) or word in content
@@ -163,6 +164,7 @@ def post_search(request):
     else:
         heading = "Archive Posts" if is_archive else "Blog Posts"
         title = "Archive" if is_archive else "Blog"
+
     for post in posts:
         md_content = get_markdown_content(is_archive, post["slug"])
         html_content = markdown(
@@ -173,7 +175,7 @@ def post_search(request):
         if query:
             for word in query_words:
                 highlighted = re.sub(
-                    rf"(?i)\b({re.escape(word)})\b",
+                    rf"\b({re.escape(word)})\b",
                     r"<mark>\1</mark>",
                     highlighted,
                     flags=re.IGNORECASE,
@@ -185,7 +187,7 @@ def post_search(request):
     if is_archive:
         desc = "Search results from the archive — including older academic posts, math materials, problem sets, and reference content."
     else:
-        desc = "Browse search results from the blog — covering thoughts on math, programming, introspection, and everyday musings."
+        desc = "Search through the blog — a collection of less-serious thoughts, reflections, and whatever else has crossed my mind lately."
 
     return render(
         request,
@@ -208,6 +210,7 @@ def post_tag(request, tag):
     posts = get_posts(is_archive)
     post_list = []
     tag_set = set()
+    rendered_content = ""
 
     for post in posts:
         tag_set.update(set(post["tags"]))
@@ -218,11 +221,11 @@ def post_tag(request, tag):
         raise Http404
 
     if is_archive:
-        title = f"Archive Posts tagged with “{tag}”".format(tag=tag)
+        title = f"Archive Posts tagged with “{tag}”"
         desc = f"Browse archived content tagged with “{tag}” — including academic notes, math materials, and past resources."
     else:
         title = f"Blog Posts tagged with “{tag}”"
-        desc = f"Explore blog posts tagged with “{tag}” — covering ideas, math discussions, programming thoughts, and more."
+        desc = f"Explore blog posts tagged with “{tag}” — including casual thoughts, rants, ideas, and other informal posts."
 
     for post in post_list:
         md_content = get_markdown_content(is_archive, post["slug"])
