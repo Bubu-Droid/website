@@ -98,14 +98,6 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "handlers": {
-        "rotating_file": {
-            "level": "WARNING",
-            "class": "logging.handlers.RotatingFileHandler",
-            "filename": BASE_DIR / "logs/errors.log",
-            "maxBytes": 1024 * 1024 * 5,  # 5 MB
-            "backupCount": 5,
-            "encoding": "utf8",
-        },
         "console": {
             "level": "DEBUG",
             "class": "logging.StreamHandler",
@@ -117,12 +109,12 @@ LOGGING = {
     },
     "loggers": {
         "django": {
-            "handlers": ["rotating_file"] + (["console"] if DEBUG else []),
+            "handlers": (["console"] if DEBUG else []),
             "level": "WARNING",
             "propagate": True,
         },
         "django.request": {
-            "handlers": ["rotating_file", "mail_admins"],
+            "handlers": ["mail_admins"],
             "level": "ERROR",
             "propagate": False,
         },
