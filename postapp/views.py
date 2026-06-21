@@ -146,7 +146,7 @@ def post_search(request):
     posts = get_posts(is_archive)
     heading = "Search Results"
     title = "Search Results"
-    rendered_content = ""
+    # rendered_content = ""
 
     if query:
         query_words = query.split()
