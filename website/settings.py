@@ -17,7 +17,12 @@ EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ALLOWED_HOSTS = ["www.bubudroid.me", "127.0.0.1", ".localhost"]
+ALLOWED_HOSTS = [
+    "www.bubudroid.me",
+    "website-ten-gold-24.vercel.app",
+    "127.0.0.1",
+    ".localhost",
+]
 
 ADMINS = [("BubuDroid", "fufudadw@gmail.com")]
 
