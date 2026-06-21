@@ -13,15 +13,15 @@
     <article>
       <h1>{{ post.title }}</h1>
       <p class="post-date">
-        <strong>Date:</strong> {{ post.date }}
+        <strong>Date:</strong> {{ post.date.month }}, {{ post.date.year }}
       </p>
       {{ content }}
-      {% if post.tags.exists %}
+      {% if tag_list %}
         <ul class="tag-list">
-          {% for tag in post.tags.all %}
+          {% for tag in tag_list %}
             <li>
-              <a href="{% url request.resolver_match.namespace|add:':post_tag' tag.name %}">
-                {{ tag.name }}
+              <a href="{% url request.resolver_match.namespace|add:':post_tag' tag %}">
+                {{ tag }}
               </a>
             </li>
           {% endfor %}
