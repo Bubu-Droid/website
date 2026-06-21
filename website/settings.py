@@ -20,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = [
     "www.bubudroid.me",
     "website-ten-gold-24.vercel.app",
+    "website-ah7nkavi1-bubu-droids-projects.vercel.app",
     "127.0.0.1",
     ".localhost",
 ]
