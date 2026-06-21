@@ -1,10 +1,8 @@
 # [bubudroid.me][websitelink]
 
-A personal website built with Django,
-deployed on PythonAnywhere,
-and secured via Cloudflare.
+A personal website built with Django.
 
-## 🌐 Features
+## Features
 
 - Markdown-rendered blog posts
 - Searchable blog and archive with keyword- and
@@ -16,20 +14,7 @@ and secured via Cloudflare.
 - HTTPS with HSTS via Cloudflare
 - Error logging with email alerts
 
-## ⚙️ Stack
-
-| Component       | Tech                        |
-| --------------- | --------------------------- |
-| Backend         | Django                      |
-| Frontend        | HTML, CSS, JS (Vanilla)     |
-| Deployment      | PythonAnywhere              |
-| DNS & HTTPS     | Cloudflare                  |
-| Email Alerts    | Gmail (SMTP + App Password) |
-| Version Control | Git + GitHub                |
-
----
-
-## 🛠️ Setup (Dev)
+## Setup
 
 ```bash
 git clone https://github.com/Bubu-Droid/website.git
@@ -58,7 +43,7 @@ Then run the deployment server:
 python3 manage.py runserver
 ```
 
-## 📧 Error Email Setup (Optional)
+## Error Email Setup (Optional)
 
 To enable error emails (e.g., for 500 Internal Server Errors),
 add the following lines into `config.py`.
@@ -69,25 +54,25 @@ EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = "<sender-email@gmail.com>"
+EMAIL_HOST_USER = "<sender-email>"
 EMAIL_HOST_PASSWORD = "<app-password>"
 
 SERVER_EMAIL = EMAIL_HOST_USER
 ```
 
-Also make sure `settings.py` contains:
+Also, make sure `settings.py` contains:
 
 ```python
 DEBUG = False
-ADMINS = [("<your-name>", "<receiver-email@gmail.com>")]
+ADMINS = [("<your-name>", "<receiver-email>")]
 ```
 
 > [!IMPORTANT]
 > To generate an app password
-> for your `<sender-email@gmail.com` account,
+> for your `<sender-email>` account,
 > follow [this video][apppasswdvid] and then
 > use the generated password as your `<app-password>`.
 
 [websitelink]: https://www.bubudroid.me
 [djangosecretwebsite]: https://djecrety.ir/
-[apppasswdvid]: https://youtu.be/74QQfPrk4vE?si=3TEWCLpivs94UUpQ
+[apppasswdvid]: https://youtu.be/74QQfPrk4vE
