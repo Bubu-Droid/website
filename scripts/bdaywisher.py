@@ -66,9 +66,12 @@ if __name__ == "__main__":
 
     today = datetime.now().day
 
+    wished = False
+
     for key, value in decrypted.items():
         bdate = datetime.strptime(value, "%Y-%m-%d")
         if today == bdate.day:
+            wished = True
             age = datetime.now().year - bdate.year
             mail_admins(
                 subject.format(name=key, age=age),
@@ -76,3 +79,7 @@ if __name__ == "__main__":
                 fail_silently=False,
                 html_message=html_message.format(name=key, age=age),
             )
+            print(f"Sent reminder mail to wish happy birthday to {key}!")
+
+    if not wished:
+        print("No birthdays to wish today... :<")
