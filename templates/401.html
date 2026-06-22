@@ -1,0 +1,10 @@
+{% extends "error_base.html" %}
+{% block title %}401 — Unauthorized{% endblock %}
+{% block description %}
+  You need to be authenticated to view this page.
+{% endblock %}
+{% block error-code %}401{% endblock %}
+{% block error-heading %}Unauthorized{% endblock %}
+{% block error-body-desc %}
+  Access is denied due to missing or invalid credentials.
+{% endblock %}
