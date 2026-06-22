@@ -42,7 +42,7 @@ def bday_wisher(request):
     if "authorization" not in request.headers:
         return HttpResponse(status=401)
     auth_header = request.headers["authorization"]
-    if auth_header != f"Bearer ${CRON_SECRET}":
+    if auth_header != f"Bearer {CRON_SECRET}":
         return HttpResponse(status=401)
 
     bdaywisher_mailer()
