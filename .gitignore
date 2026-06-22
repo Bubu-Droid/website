@@ -4,3 +4,4 @@ logs/
 staticfiles/
 __pycache__/
 .env
+bdaydata.json
