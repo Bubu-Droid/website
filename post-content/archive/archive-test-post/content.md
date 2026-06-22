@@ -28,7 +28,7 @@ Some content in this section.
     This is an example.
 </div>
 
-## Claim, Problem, Proof and Solution Environments
+## Claim, Problem, Proof, and Solution Environments
 
 <div class="claim-box" style="--title: 'Claim (some claim)';">
     This is a claim.
