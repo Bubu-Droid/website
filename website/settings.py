@@ -7,11 +7,13 @@ _ = load_dotenv()
 
 assert "DEBUG" in os.environ, "DEBUG missing!"
 assert "SECRET_KEY" in os.environ, "SECRET_KEY missing!"
+assert "CRON_SECRET" in os.environ, "CRON_SECRET missing!"
 assert "EMAIL_HOST_USER" in os.environ, "EMAIL_HOST_USER missing!"
 assert "EMAIL_HOST_PASSWORD" in os.environ, "EMAIL_HOST_PASSWORD missing!"
 
 DEBUG = os.getenv("DEBUG") == "TRUE"
 SECRET_KEY = os.getenv("SECRET_KEY")
+CRON_SECRET = os.getenv("CRON_SECRET")
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
