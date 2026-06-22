@@ -11,7 +11,6 @@ A personal website built with Django.
 - Clean, responsive layout (Tokyo Night-inspired)
 - Static pages (About, Olympiads, Pet Peeves, etc.)
 - Sitemap + robots.txt for SEO
-- HTTPS with HSTS via Cloudflare
 - Error logging with email alerts
 
 ## Setup
