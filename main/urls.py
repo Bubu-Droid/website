@@ -9,4 +9,6 @@ urlpatterns = [
     path("olympiads/", views.olympiads_page, name="olympiads_page"),
     path("pet-peeves/", views.pet_peeves_page, name="pet_peeves_page"),
     path("contact/", views.contact_page, name="contact_page"),
+    path("api/gfm/", views.github_file_monitor, name="github_file_monitor"),
+    path("api/bday/", views.bday_wisher, name="bday_wisher"),
 ]
