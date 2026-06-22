@@ -146,6 +146,26 @@ def post_detail(request, slug):
     )
 
 
+def highlight_text(html_content: str, word: str):
+    def check_case(match):
+        if match.group(1):
+            return match.group(1)
+        else:
+            return f"<mark>{match.group(2)}</mark>"
+
+    # this logic is so goated bruv. i could've never come up with this.
+    pattern = rf"(<[^>]+>)|({re.escape(word)})"
+
+    highlighted = re.sub(
+        pattern,
+        check_case,
+        html_content,
+        flags=re.IGNORECASE,
+    )
+
+    return highlighted
+
+
 def post_search(request):
     is_archive = request.resolver_match.namespace == "archive"
     query = request.GET.get("q", "").strip().lower()
@@ -180,12 +200,7 @@ def post_search(request):
         highlighted = bumped_content
         if query:
             for word in query_words:
-                highlighted = re.sub(
-                    rf"\b({re.escape(word)})\b",
-                    r"<mark>\1</mark>",
-                    highlighted,
-                    flags=re.IGNORECASE,
-                )
+                highlighted = highlight_text(highlighted, word)
 
         rendered_content = mark_safe(highlighted)
 
