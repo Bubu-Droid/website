@@ -1,24 +1,45 @@
+import json
+from datetime import datetime
+
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import reverse
 
+from website.settings import BASE_DIR
 
-# TODO: check if this works properly
+BLOG_DB = BASE_DIR / "db_blog.json"
+ARCHIVE_DB = BASE_DIR / "db_archive.json"
+
+
 class PostSitemap(Sitemap):
     changefreq = "monthly"
 
     def items(self):
-        with open("db_blog.json", "r") as f:
-            all_posts = json.load(f)["posts"]
-        with open("db_archive.json", "r") as f:
-            all_posts.append(json.load(f))
+        with BLOG_DB.open(mode="r", encoding="utf-8") as f:
+            blog_posts = json.load(f)["posts"]
+        with ARCHIVE_DB.open(mode="r", encoding="utf-8") as f:
+            archive_posts = json.load(f)["posts"]
+
+        all_posts = []
+        for post in blog_posts:
+            all_posts.append([post, "blog"])
+        for post in archive_posts:
+            all_posts.append([post, "archive"])
 
         return all_posts
 
-    def lastmod(self, post):
-        return post.date
+    def location(self, item):
+        if item[1] == "blog":
+            return reverse("blog:post_detail", kwargs={"slug": item[0]["slug"]})
 
-    def priority(self, post):
-        return 0.7 if post.suggested else 0.6
+        return reverse("archive:post_detail", kwargs={"slug": item[0]["slug"]})
+
+    def priority(self, item):
+        return 0.7 if item[0]["suggested"] == "yes" else 0.6
+
+    def lastmod(self, item):
+        date_string = f"{item[0]['date']['month']} {item[0]['date']['year']}"
+        parsed_date = datetime.strptime(date_string, "%B %Y")
+        return parsed_date.date()
 
 
 class StaticViewSitemap(Sitemap):
