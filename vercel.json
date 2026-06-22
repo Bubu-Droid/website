@@ -1,5 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://www.bubudroid.me/$1",
+      "permanent": true
+    }
+  ],
   "crons": [
     {
       "path": "/api/gfm",
