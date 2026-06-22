@@ -1,67 +1,55 @@
-import os
 import sys
 from pathlib import Path
 
-import django
 import requests
-from django.core.mail import send_mail
+from django.core.mail import mail_admins
+from dotenv import load_dotenv
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(PROJECT_ROOT))
+_ = load_dotenv()
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "website.settings")
-django.setup()
+from website.settings import BASE_DIR
 
-from website.config import EMAIL_HOST_USER
-from website.settings import ADMINS, DEBUG
-
-if DEBUG:
-    HOME = os.environ.get("HOME", "/bubu/home")
-else:
-    HOME = Path(__file__).resolve().parent.parent.parent
+github_monitor_files = BASE_DIR / "scripts" / "github_monitor_files"
 
 FILES = [
     {
         "name": "evan.sty",
-        "path": f"{HOME}/github-files/evan.sty",
+        "path": github_monitor_files / "evan.sty",
         "real_url": "https://github.com/vEnhance/dotfiles/blob/main/texmf/tex/latex/evan/evan.sty",
         "raw_url": "https://raw.githubusercontent.com/vEnhance/dotfiles/main/texmf/tex/latex/evan/evan.sty",
     },
     {
         "name": "strparse.py",
-        "path": f"{HOME}/github-files/strparse.py",
+        "path": github_monitor_files / "strparse.py",
         "real_url": "https://github.com/vEnhance/von/blob/main/von/strparse.py",
         "raw_url": "https://raw.githubusercontent.com/vEnhance/von/main/von/strparse.py",
     },
     {
         "name": "export-ggb-clean-asy.py",
-        "path": f"{HOME}/github-files/export-ggb-clean-asy.py",
+        "path": github_monitor_files / "export-ggb-clean-asy.py",
         "real_url": "https://github.com/vEnhance/dotfiles/blob/main/py-scripts/export-ggb-clean-asy.py",
         "raw_url": "https://raw.githubusercontent.com/vEnhance/dotfiles/main/py-scripts/export-ggb-clean-asy.py",
     },
 ]
 
 
-def update_query(file_dict: dict) -> bool:
+def update_query(file_dict) -> bool:
     r = requests.get(file_dict["raw_url"], timeout=20)
     r.raise_for_status()
     new_content = r.text
 
     try:
-        with open(file_dict["path"], "r", encoding="utf-8") as f:
+        with file_dict["path"].open(mode="r", encoding="utf-8") as f:
             old_content = f.read()
     except FileNotFoundError:
-        old_content = None
+        raise FileNotFoundError
 
     if old_content != new_content:
-        with open(file_dict["path"], "w", encoding="utf-8") as f:
-            f.write(new_content)
         return True
     return False
 
 
 if __name__ == "__main__":
-
     for file in FILES:
         Path(file["path"]).parent.mkdir(parents=True, exist_ok=True)
 
@@ -70,7 +58,7 @@ if __name__ == "__main__":
         no_changes = []
 
         for file in FILES:
-            print(f'Checking {file["name"]}...')
+            print(f"Checking {file['name']}...")
             if update_query(file):
                 changes.append(file)
             else:
@@ -110,11 +98,9 @@ if __name__ == "__main__":
 
         if changes:
             print("Sending email...")
-            send_mail(
+            mail_admins(
                 "GitHub file monitor: changes detected",
                 plain_message,
-                EMAIL_HOST_USER,
-                [admin[1] for admin in ADMINS],
                 fail_silently=False,
                 html_message=html_message,
             )
@@ -129,11 +115,9 @@ if __name__ == "__main__":
             f"<p>The cron job has run into unexpected errors:</p><pre>{tb}</pre>"
         )
         print("Sending error email...")
-        send_mail(
+        mail_admins(
             "GitHub file monitor: execution FAILED!",
             str(e),
-            EMAIL_HOST_USER,
-            [admin[1] for admin in ADMINS],
             fail_silently=False,
             html_message=MESSAGE_TEXT,
         )
