@@ -4,9 +4,15 @@ import re
 from django.conf import settings
 from django.http import Http404
 from django.shortcuts import render
+from django.utils import encoding
 from django.utils.html import strip_tags
 from django.utils.safestring import mark_safe
 from markdown import markdown
+
+from website.settings import BASE_DIR
+
+BLOG_DB = BASE_DIR / "db_blog.json"
+ARCHIVE_DB = BASE_DIR / "db_archive.json"
 
 
 def bump_headings(html: str, levels: int) -> str:
@@ -27,9 +33,9 @@ def bump_headings(html: str, levels: int) -> str:
 
 def get_markdown_content(is_archive: bool, slug: str) -> str:
     folder = "archive" if is_archive else "blog"
-    path = settings.BASE_DIR / "post-content" / folder / slug / "content.md"
+    path = BASE_DIR / "post-content" / folder / slug / "content.md"
     try:
-        with open(path, "r", encoding="utf-8") as f:
+        with path.open(mode="r", encoding="utf-8") as f:
             return f.read()
     except FileNotFoundError:
         return f"Markdown file not found for slug ‘{slug}’"
@@ -37,10 +43,10 @@ def get_markdown_content(is_archive: bool, slug: str) -> str:
 
 def get_posts(is_archive: bool):
     if is_archive:
-        with open("db_archive.json", "r") as f:
+        with ARCHIVE_DB.open(mode="r", encoding="utf-8") as f:
             posts = json.load(f)["posts"]
     else:
-        with open("db_blog.json", "r") as f:
+        with BLOG_DB.open(mode="r", encoding="utf-8") as f:
             posts = json.load(f)["posts"]
     return posts
 
