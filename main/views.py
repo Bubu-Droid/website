@@ -25,8 +25,11 @@ def contact_page(request):
 def robots_txt(request):
     content = [
         "User-agent: *",
-        "Disallow: /super-secret-admin-path-69420/",
         "Allow: /",
-        "Sitemap: https://bubudroid.me/sitemap.xml",
+        "Sitemap: https://www.bubudroid.me/sitemap.xml",
     ]
-    return HttpResponse("\n".join(content), content_type="text/plain")
+
+    return HttpResponse(
+        "\n".join(content).encode("utf-8"),
+        content_type="text/plain",
+    )
