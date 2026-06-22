@@ -26,7 +26,7 @@ with encbdayfile.open(mode="rb") as f:
 decrypted = json.loads(fernet.decrypt(encrypted))
 
 
-if __name__ == "__main__":
+def bdaywisher_mailer():
     # I've said this before and I'll say it again,
     # an average person cannot come anywhere close to
     # styling/designing which a proper LLM can.

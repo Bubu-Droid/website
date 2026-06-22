@@ -49,7 +49,7 @@ def update_query(file_dict) -> bool:
     return False
 
 
-if __name__ == "__main__":
+def gfm_checker_and_mailer():
     for file in FILES:
         Path(file["path"]).parent.mkdir(parents=True, exist_ok=True)
 
