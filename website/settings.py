@@ -26,7 +26,7 @@ ALLOWED_HOSTS = [
     ".localhost",
 ]
 
-ADMINS = [("BubuDroid", "fufudadw@gmail.com")]
+ADMINS = [("BubuDroid", "bubu@bubudroid.me")]
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
