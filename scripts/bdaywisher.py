@@ -1,8 +1,8 @@
 import json
 import os
-from datetime import datetime
 
 from django.core.mail import mail_admins
+from django.utils.timezone import localtime
 
 from website.settings import BASE_DIR
 
@@ -64,15 +64,15 @@ def bdaywisher_mailer():
     </html>
     """
 
-    today = datetime.now().day
+    today = localtime().now().day
 
     wished = False
 
     for key, value in decrypted.items():
-        bdate = datetime.strptime(value, "%Y-%m-%d")
+        bdate = localtime().strptime(value, "%Y-%m-%d")
         if today == bdate.day:
             wished = True
-            age = datetime.now().year - bdate.year
+            age = localtime().now().year - bdate.year
             mail_admins(
                 subject.format(name=key, age=age),
                 plain_message.format(name=key, age=age),
