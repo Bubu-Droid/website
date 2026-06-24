@@ -3,6 +3,7 @@ from pathlib import Path
 
 import requests
 from django.core.mail import mail_admins
+from django.utils.timezone import localtime
 from dotenv import load_dotenv
 
 _ = load_dotenv()
@@ -98,6 +99,8 @@ def gfm_checker_and_mailer():
 
         if changes:
             print("Sending email...")
+            # TEST: Remove the line below
+            print(f"Localtime: {localtime().now()}")
             mail_admins(
                 "GitHub file monitor: changes detected",
                 plain_message,
