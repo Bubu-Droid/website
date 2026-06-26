@@ -82,5 +82,4 @@ def bdaywisher_mailer():
             print(f"Sent reminder mail to wish happy birthday to {key}!")
 
     if not wished:
-        # TEST: Remove the line below
-        print(f"No birthdays to wish today... :<. Current time: {localtime().now()}")
+        print("No birthdays to wish today... :<.")
