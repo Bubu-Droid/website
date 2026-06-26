@@ -1,5 +1,4 @@
 import re
-# intentional comment to check if vercel cron jobs are working as intended
 
 oper_macros = {
     "\\floor": (" \\left\\lfloor ", " \\right\\rfloor "),
